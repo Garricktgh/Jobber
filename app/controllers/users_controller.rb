@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @User = current_user
+    @posts = Post.where(work_experience: @User.work_experience, industry: @User.industry, education_level: @User.education_level, employment_type: @User.employment_type, expected_salary: @User.expected_salary)
   end
 
   def new
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(compnay_params)
+    @user = User.new(company_params)
 
     if(@user.save)
       redirect_to @user
