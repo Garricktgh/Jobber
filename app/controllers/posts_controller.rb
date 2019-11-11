@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
   def index
-    @post = current_post
-    @users = User.where(work_experience: @post.work_experience, industry: @post.industry, education_level: @post.education_level, employment_type: @post.employment_type, expected_salary: @post.expected_salary)
   end
 
   def new
@@ -20,6 +18,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @users = User.where(work_experience: @post.work_experience, industry: @post.industry, education_level: @post.education_level, employment_type: @post.employment_type, expected_salary: @post.expected_salary)
   end
 
   def edit
