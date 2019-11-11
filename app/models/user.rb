@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :status
-  has_many :message
+  has_many :status, :dependent => :delete_all
+  has_many :message, :dependent => :delete_all
 
   validates :name, length: { minimum: 3, maximum: 50 }
   validates :description, length: { minimum: 3, maximum: 300 }
