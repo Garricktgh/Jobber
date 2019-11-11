@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :status, :dependent => :delete_all
   has_many :message, :dependent => :delete_all
 
-  validates :name, length: { minimum: 3, maximum: 50 }
-  validates :description, length: { minimum: 3, maximum: 300 }
+  validates :name, presence: true, length: { minimum: 3, maximum: 50 }
+  validates :description, presence: true, length: { minimum: 3, maximum: 300 }
 end
