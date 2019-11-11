@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :users
   resources :companies
   resources :posts
-  resources :matches
+  resources :statueses
   resources :messages
 end
