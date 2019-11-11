@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_073054) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.string "name"
-    t.text "ddisplay_picture"
+    t.text "display_picture"
     t.string "employment_type"
     t.string "industry"
     t.string "work_experience"
