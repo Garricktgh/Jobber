@@ -4,5 +4,5 @@ class Company < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, length: { minimum: 3, maximum: 50 }
+  # validates :name, length: { minimum: 3, maximum: 50 
 end
