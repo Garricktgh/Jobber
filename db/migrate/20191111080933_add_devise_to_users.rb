@@ -2,7 +2,7 @@
 
 class AddDeviseToUsers < ActiveRecord::Migration[5.2]
   def self.up
-    change_table :users do |t|
+    create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -20,7 +20,14 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
       # t.datetime :last_sign_in_at
       # t.inet     :current_sign_in_ip
       # t.inet     :last_sign_in_ip
-
+      t.string :name
+      t.text :display_picture
+      t.string :employment_type
+      t.string :industry
+      t.string :work_experience
+      t.string :education_level
+      t.string :expected_salary
+      t.text :description
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at
