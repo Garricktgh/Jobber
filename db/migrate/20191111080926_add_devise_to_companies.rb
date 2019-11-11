@@ -2,7 +2,7 @@
 
 class AddDeviseToCompanies < ActiveRecord::Migration[5.2]
   def self.up
-    change_table :companies do |t|
+    create_table :companies do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -20,7 +20,8 @@ class AddDeviseToCompanies < ActiveRecord::Migration[5.2]
       # t.datetime :last_sign_in_at
       # t.inet     :current_sign_in_ip
       # t.inet     :last_sign_in_ip
-
+      t.string :name
+      t.text :display_picture
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at
