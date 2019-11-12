@@ -28,4 +28,15 @@ ActiveRecord::Base.transaction do
 
     Post.create!(company_id: 1, job_title: FFaker::Job.title,  job_description: FFaker::AWS.product_description, employment_type: "Full-time", industry: "Tech", work_experience: "1-3", education_level: "Master", expected_salary: "2000-3000")
   end
+
+  Status.create!(post_id: 1, user_id: 1, user_approval: "true")
+  Status.create!(post_id: 2, user_id: 1, user_approval: "true")
+  Status.create!(post_id: 3, user_id: 1, user_approval: "true")
+  Status.create!(post_id: 4, user_id: 1, user_approval: "true")
+
+  Status.create!(post_id: 4, user_id: 2, post_approval: "true")
+  Status.create!(post_id: 5, user_id: 3, post_approval: "true")
+  Status.create!(post_id: 6, user_id: 4, post_approval: "true")
+  Status.create!(post_id: 7, user_id: 5, post_approval: "true")
+  
 end

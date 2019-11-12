@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_082755) do
+ActiveRecord::Schema.define(version: 2019_11_12_101452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_082755) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.text "display_picture"
+    t.text "display_picture", default: "https://www.pngfind.com/pngs/m/665-6659827_enterprise-comments-default-company-logo-png-transparent-png.png"
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
@@ -54,9 +54,10 @@ ActiveRecord::Schema.define(version: 2019_11_11_082755) do
   create_table "statuses", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "post_id"
-    t.text "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "post_approval", default: "pending"
+    t.text "user_approval", default: "pending"
     t.index ["post_id"], name: "index_statuses_on_post_id"
     t.index ["user_id"], name: "index_statuses_on_user_id"
   end
@@ -68,7 +69,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_082755) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.text "display_picture"
+    t.text "display_picture", default: "http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg"
     t.string "employment_type"
     t.string "industry"
     t.string "work_experience"
