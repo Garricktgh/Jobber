@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   def index
     @User = current_user
-    @posts = Post.where(work_experience: @User.work_experience, industry: @User.industry, education_level: @User.education_level, employment_type: @User.employment_type, expected_salary: @User.expected_salary)
+    @statuses = Status.all.pluck(:post_id)
+    @posts = Post.where(work_experience: @User.work_experience, industry: @User.industry, education_level: @User.education_level, employment_type: @User.employment_type, expected_salary: @User.expected_salary)..where.not(id: @statuses)
+    # Post.where(work_experience: User.work_experience, industry: User.industry, education_level: User.education_level, employment_type: User.employment_type, expected_salary: User.expected_salary).where.not(id: Statuses.post_id)
   end
 
   def new
