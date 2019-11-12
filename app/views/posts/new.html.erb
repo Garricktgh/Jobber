@@ -1,0 +1,51 @@
+<div class="container">
+
+	<h1 class="mt-4 text-center">Create Job Posting</h1>
+
+	<%= form_with scope: :post, model: @post, local: true do |form| %>
+		<div class="form-group mt-5 mb-5" style="width: 50%; margin: 0 auto">
+
+		  <p>
+		    <%= form.label :job_title %>
+		    <%= form.text_field :job_title, {:class => "form-control", :minlength => 3, :maxlength => 50, :required => "true"} %>
+		    <small class="form-text text-muted">3 to 50 characters</small>
+		  </p>
+
+		  <p>
+		    <%= form.label :job_description %>
+		    <%= form.text_area :job_description, {:class => "form-control", rows: 8, "data-provide" => "markdown", :minlength => 3, :maxlength => 500, :required => "true"} %>
+		    <small class="form-text text-muted">3 to 500 characters</small>
+		  </p>
+
+		  <p>
+		  	<%= form.label :employment_type %><br>
+				<%= form.select :employment_type, Post::EMPLOYMENT_TYPES, {:include_blank => 'Choose an employment type', :disabled => 1}, {:class => "form-control", :required => "true"} %>
+		  </p>
+
+		  <p>
+		  	<%= form.label :industry %><br>
+				<%= form.select :industry, Post::INDUSTRIES, {:include_blank => 'Choose a industry', :disabled => 1}, {:class => "form-control", :required => "true"} %>
+		  </p>
+
+		  <p>
+		  	<%= form.label :work_experience %><br>
+				<%= form.select :work_experience, Post::WORK_EXPERIENCES, {:include_blank => 'Choose years of experience required', :disabled => 1}, {:class => "form-control", :required => "true"} %>
+		  </p>
+
+		  <p>
+		  	<%= form.label :education_level %><br>
+				<%= form.select :education_level, Post::EDUCATION_LEVELS, {:include_blank => 'Choose education level required', :disabled => 1}, {:class => "form-control", :required => "true"} %>
+		  </p>
+
+		  <p>
+		  	<%= form.label :expected_salary %><br>
+				<%= form.select :expected_salary, Post::EXPECTED_SALARIES, {:include_blank => 'Choose a salary range', :disabled => 1}, {:class => "form-control", :required => "true"} %>
+		  </p>
+
+		  <%= link_to 'Back', company_path(current_company), {:class => "btn btn-outline-secondary"} %>
+		  <%= form.submit "Save", class: "btn btn-primary" %>
+
+		</div>
+	<% end %>
+
+</div>

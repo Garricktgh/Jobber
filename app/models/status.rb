@@ -1,4 +1,4 @@
-class Post < ApplicationRecord
+class Status < ApplicationRecord
   belongs_to :user
   belongs_to :post
 end
