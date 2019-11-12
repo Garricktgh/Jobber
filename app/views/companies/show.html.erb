@@ -6,20 +6,66 @@
 		<% header = @company.email%>
 	<% end %>
 
-
-	<h1 class="display-4 text-center"><%= header %></h1>
-
 	<div class="row justify-content-center mt-5">
-		<figure class="figure">
-		  <img style="width: 30rem;" class="figure-img img-fluid rounded" alt="company logo" src=<%= @company.display_picture %> />
-		</figure>
+		<div class="card text-center" style="width: 50%;">
+		  <img class="card-img-top" alt="company logo" src=<%= @company.display_picture %>>
+		  <div class="card-body">
+		    <h1 class="card-title"><%= header %></h1>
+		  </div>
+		</div>
 	</div>
 
-	<div class="text-center mb-5">
+
+
+
+	<div class="text-center mt-3 mb-5">
 		<%= link_to 'Back', company_path, {:class => "btn btn-outline-secondary"} %>
 
 		<%= link_to 'Edit', edit_company_path(@company), {:class => "btn btn-outline-primary"} %>
 	</div>
+
+
+
+	<% if @post.first == nil %>
+		<p class="text-center">You have no job postings yet, let's create one</p>
+	<% else %>
+		<table class="table">
+		  <thead class="thead-dark">
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Job Title</th>
+		      <th scope="col">Employment Type</th>
+		      <th scope="col">Date Posted</th>
+		      <th scope="col">No. of Matches</th>
+		      <th scope="col">Show</th>
+		      <th scope="col">Edit</th>
+		      <th scope="col">Delete</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+				<% @post.order({ created_at: "asc" }).each do |x| %>
+			    <tr>
+			      <th scope="row">1</th>
+			      <th scope="col">x.job_title</th>
+			      <th scope="col">x.job_description</th>
+			      <th scope="col">x.created_at</th>
+			      <th scope="col">(tbc)</th>
+			      <th scope="col"><%= link_to 'Show', post_path(x), {:class => "btn btn-sm btn-primary"} %></th>
+			      <th scope="col"><%= link_to 'Edit', edit_post_path(x), {:class => "btn btn-sm btn-warning"} %></th>
+			      <th scope="col"><%= link_to 'Delete', post_path(x), :class => "btn btn-sm btn-secondary",
+		        method: :delete,
+		        data: { confirm: 'Are you sure?' } %></th>
+			    </tr>
+				<% end %>
+		  </tbody>
+		</table>
+	<% end %>
+
+	<div class="text-center mt-5 mb-5">
+		<%= link_to 'Create Job Posting', new_post_path, {:class => "btn btn-outline-primary"} %>
+	</div>
+
+
 
 
 
