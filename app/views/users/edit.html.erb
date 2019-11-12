@@ -3,7 +3,7 @@
 	<h1 class="display-4 text-center">Edit Your Job Seeker Profile</h1>
 
 	<%= form_with scope: :user, model: @user, local: true do |form| %>
-		<div class="form-group mt-5" style="width: 50%; margin: 0 auto">
+		<div class="form-group mt-5 mb-5" style="width: 50%; margin: 0 auto">
 
 		  <p>
 		    <%= form.label :name %>
@@ -12,9 +12,46 @@
 		  </p>
 
 		  <p>
-		    <%= form.label :profile_pic %><br>
-		    <%= form.url_field :profile_pic, {:class => "form-control"} %>
+		    <%= form.label :display_picture %><br>
+		    <%= form.url_field :display_picture, {:class => "form-control"} %>
 		  </p>
+
+		  <p>
+		  	<%= form.label :employment_type %><br>
+				<%= form.select :employment_type, Post::EMPLOYMENT_TYPES, {}, {:class => "form-control", :required => "true"} %>
+		  </p>
+
+		  <p>
+		  	<%= form.label :industry %><br>
+				<%= form.select :industry, Post::INDUSTRIES, {}, {:class => "form-control", :required => "true"} %>
+		  </p>
+
+		  <p>
+		  	<%= form.label :work_experience %><br>
+				<%= form.select :work_experience, Post::WORK_EXPERIENCES, {}, {:class => "form-control", :required => "true"} %>
+		  </p>
+
+		  <p>
+		  	<%= form.label :education_level %><br>
+				<%= form.select :education_level, Post::EDUCATION_LEVELS, {}, {:class => "form-control", :required => "true"} %>
+		  </p>
+
+		  <p>
+		  	<%= form.label :expected_salary %><br>
+				<%= form.select :expected_salary, Post::EXPECTED_SALARIES, {}, {:class => "form-control", :required => "true"} %>
+		  </p>
+
+		  <p>
+		    <%= form.label :self_description %><br>
+		    <%= form.text_area :description, {:class => "form-control", rows: 8, "data-provide" => "markdown", :minlength => 3, :maxlength => 300, :required => "true"} %>
+		    <small class="form-text text-muted">3 to 300 characters</small>
+		  </p>
+
+
+
+
+
+
 
 		  <%= link_to 'Back', user_path, {:class => "btn btn-outline-secondary"} %>
 		  <%= form.submit "Save", class: "btn btn-primary" %>
