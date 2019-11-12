@@ -17,19 +17,17 @@
  	font-family: 'Poppins', sans-serif;
  }
 
- .container {
-	 	h2 {
-	 		font-size: 30px;
-	 	}
- }
+	h1{
+		font-size: 50px;
+	}
 
  .navbar {
  	background-color: #3D9BF1;
- 	padding: 1% 10%;
  }
 
  .navbar-brand img {
  	width: 70%;
+ 	margin-left: 10%;
  }
 
  .btn-nav {
@@ -49,3 +47,24 @@
  	font-size: 14px;
  	padding: 0.5em 2em;
  }
+
+
+ @media only screen and (max-width: 700px) {
+
+	h1{
+		font-size: 30px !important;
+	}
+
+ 	.card{
+ 		width: 90% !important;
+ 	}
+
+ 	.form-group{
+ 		width: 90% !important;
+ 	}
+
+ 	.byebye{
+ 		display: none
+ 	}
+
+}
