@@ -16,12 +16,6 @@
 
 		<nav class="navbar justify-content-between">
 			<div class="form-inline">
-				<% if company_signed_in? && user_signed_in? == false %>
-					<a class="navbar-brand" href="/companies/<%= current_company.id %>"><i class='bx bx-user-circle bx-md'></i></a>
-				<% end %>
-	    	<% if company_signed_in? == false && user_signed_in? %>
-					<a class="navbar-brand" href="/users/<%= current_user.id %>"><i class='bx bx-user-circle bx-md'></i></a>
-				<% end %>
 			  <a class="navbar-brand" href="/"><%= image_tag 'company-logo.png' %></a>
 		  </div>
 

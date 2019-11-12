@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+
+  before_action :authenticate_user!
+
+
   def index
     @User = current_user
     @posts = Post.where(work_experience: @User.work_experience, industry: @User.industry, education_level: @User.education_level, employment_type: @User.employment_type, expected_salary: @User.expected_salary)
