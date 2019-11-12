@@ -3,9 +3,10 @@ class CompaniesController < ApplicationController
   before_action :authenticate_company!
 
   def index
-    @user = current_user
-    @statuses = Status..where(user_id: @user).pluck(:post_id)
-    @posts = Post.where(work_experience: @user.work_experience, industry: @user.industry, education_level: @user.education_level, employment_type: @user.employment_type, expected_salary: @user.expected_salary).where.not(id: @statuses)
+
+    @company = current_company
+    @user = User.first
+
   end
 
   def new
