@@ -5,11 +5,49 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.4/css/boxicons.min.css' rel='stylesheet'>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+
+		<nav class="navbar navbar-light bg-light justify-content-between">
+			<div class="form-inline">
+				<% if company_signed_in? && user_signed_in? == false %>
+					<a class="navbar-brand" href="/companies/<%= current_company.id %>"><i class='bx bx-user-circle bx-md'></i></a>
+				<% end %>
+	    	<% if company_signed_in? == false && user_signed_in? %>
+					<a class="navbar-brand" href="/users/<%= current_user.id %>"><i class='bx bx-user-circle bx-md'></i></a>
+				<% end %>
+			  <a class="navbar-brand" href="/">Jobber</a>
+		  </div>
+		  <div class="form-inline">
+	    	<% if company_signed_in? == false && user_signed_in? == false %>
+					<%= button_to 'Log In Company', new_company_session_url, {:class => "btn btn-outline-primary mr-4 mb-2"} %>
+					<%= button_to 'Log In User', new_user_session_url, {:class => "btn btn-outline-primary mb-2"} %>
+				<% end %>
+				<% if company_signed_in? && user_signed_in? == false %>
+					<%= button_to 'Log Out Company', destroy_company_session_url, {method: :delete, :class => "btn btn-outline-dark mr-4 mb-2"}%>
+				<% end %>
+	    	<% if company_signed_in? == false && user_signed_in? %>
+					<%= button_to 'Log Out User', destroy_user_session_url, {method: :delete, :class => "btn btn-outline-dark mb-2"}%>
+				<% end %>
+			</div>
+		</nav>
+
+
+
+
     <%= yield %>
+
+
+
+
+
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>

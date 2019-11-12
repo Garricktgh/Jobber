@@ -9,6 +9,8 @@ class Post < ApplicationRecord
   has_many :status, :dependent => :delete_all
   has_many :message, :dependent => :delete_all
 
+
   validates :job_title, length: { minimum: 3, maximum: 50 }
   validates :job_description, length: { minimum: 3, maximum: 1000 }
+
 end
