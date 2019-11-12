@@ -5,8 +5,9 @@ class Post < ApplicationRecord
   INDUSTRIES = ['Health Care', 'Finance', 'Technology', 'Manufacturing', 'HR', 'Education']
   WORK_EXPERIENCES = %w(0 1-3 4-6 7-10 >10)
 
-  has_many :status
-  has_many :message
+  belongs_to :company
+  has_many :status, :dependent => :delete_all
+  has_many :message, :dependent => :delete_all
 
   validates :job_title, length: { minimum: 3, maximum: 50 }
   validates :job_description, length: { minimum: 3, maximum: 1000 }
