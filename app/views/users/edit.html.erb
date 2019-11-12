@@ -18,27 +18,27 @@
 
 		  <p>
 		  	<%= form.label :employment_type %><br>
-				<%= form.select :employment_type, Post::EMPLOYMENT_TYPES, {}, {:class => "form-control", :required => "true"} %>
+				<%= form.select :employment_type, Post::EMPLOYMENT_TYPES, {:include_blank => 'Choose an employment type', :disabled => 1}, {:class => "form-control", :required => "true"} %>
 		  </p>
 
 		  <p>
 		  	<%= form.label :industry %><br>
-				<%= form.select :industry, Post::INDUSTRIES, {}, {:class => "form-control", :required => "true"} %>
+				<%= form.select :industry, Post::INDUSTRIES, {:include_blank => 'Choose a industry', :disabled => 1}, {:class => "form-control", :required => "true"} %>
 		  </p>
 
 		  <p>
 		  	<%= form.label :work_experience %><br>
-				<%= form.select :work_experience, Post::WORK_EXPERIENCES, {}, {:class => "form-control", :required => "true"} %>
+				<%= form.select :work_experience, Post::WORK_EXPERIENCES, {:include_blank => 'Choose your work experience', :disabled => 1}, {:class => "form-control", :required => "true"} %>
 		  </p>
 
 		  <p>
 		  	<%= form.label :education_level %><br>
-				<%= form.select :education_level, Post::EDUCATION_LEVELS, {}, {:class => "form-control", :required => "true"} %>
+				<%= form.select :education_level, Post::EDUCATION_LEVELS, {:include_blank => 'Choose your education level', :disabled => 1}, {:class => "form-control", :required => "true"} %>
 		  </p>
 
 		  <p>
 		  	<%= form.label :expected_salary %><br>
-				<%= form.select :expected_salary, Post::EXPECTED_SALARIES, {}, {:class => "form-control", :required => "true"} %>
+				<%= form.select :expected_salary, Post::EXPECTED_SALARIES, {:include_blank => 'Choose an expected salary', :disabled => 1}, {:class => "form-control", :required => "true"} %>
 		  </p>
 
 		  <p>
@@ -46,11 +46,6 @@
 		    <%= form.text_area :description, {:class => "form-control", rows: 8, "data-provide" => "markdown", :minlength => 3, :maxlength => 300, :required => "true"} %>
 		    <small class="form-text text-muted">3 to 300 characters</small>
 		  </p>
-
-
-
-
-
 
 
 		  <%= link_to 'Back', user_path, {:class => "btn btn-outline-secondary"} %>

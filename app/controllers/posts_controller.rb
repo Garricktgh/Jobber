@@ -7,7 +7,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(compnay_params)
+    @post = Post.new(post_params)
+    @post.company = current_company
 
     if(@post.save)
       redirect_to @post
@@ -17,8 +18,13 @@ class PostsController < ApplicationController
   end
 
   def show
+    # @post = Post.find_by(id: params[:id])
+    # @users = User.where(work_experience: @post.work_experience, industry: @post.industry, education_level: @post.education_level, employment_type: @post.employment_type, expected_salary: @post.expected_salary)
+
     @post = Post.find_by(id: params[:id])
-    @users = User.where(work_experience: @post.work_experience, industry: @post.industry, education_level: @post.education_level, employment_type: @post.employment_type, expected_salary: @post.expected_salary)
+    @company = current_company
+
+
   end
 
   def edit
@@ -28,13 +34,17 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
     @post.update(post_params)
-    redirect_to root_path
+    redirect_to post_path
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    @company = current_company
 
+    redirect_to company_path(@company)
   end
-  
+
   private
   def post_params
     params.require(:post).permit(:job_title, :job_description, :employment_type, :industry, :work_experience, :education_level, :expected_salary)
