@@ -29,15 +29,15 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     @user.update(user_params)
-    redirect_to root_path
+    redirect_to user_path
   end
 
   def destroy
 
   end
-  
+
   private
   def user_params
-    params.require(:user).permit(:job_title, :job_description, :employment_type, :industry, :work_experience, :education_level, :expected_salary)
+    params.require(:user).permit(:name, :display_picture, :employment_type, :industry, :work_experience, :education_level, :expected_salary, :description)
   end
 end
