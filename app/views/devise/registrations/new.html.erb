@@ -1,6 +1,6 @@
 <div class="container">
 
-	<h2 class="display-4 text-center">Sign up</h2>
+	<h2 class="display-4 text-center m-5">Sign up</h2>
 
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 		<div class="form-group mt-5" style="width: 50%; margin: 0 auto">
@@ -11,7 +11,7 @@
 		    <%= f.label :email %><br />
 		    <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control", :required => "true" %>
 		  </div>
-
+		  <br>
 		  <div class="field">
 		    <%= f.label :password %>
 		    <% if @minimum_password_length %>
@@ -19,17 +19,15 @@
 		    <% end %><br />
 		    <%= f.password_field :password, autocomplete: "new-password", :class => "form-control", :required => "true" %>
 		  </div>
-
+		  <br>
 		  <div class="field">
 		    <%= f.label :password_confirmation %><br />
 		    <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control", :required => "true" %>
 		  </div>
 
 		  <div class="actions mt-3 mb-5">
-		    <%= f.submit "Sign up", class: "btn btn-primary" %>
+		    <%= f.submit "Sign up", class: "btn btn-submit" %>
 		  </div>
-
-		  <%= render "devise/shared/links" %>
 
 		</div>
 	<% end %>
