@@ -19,6 +19,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find_by(id: params[:id])
+    @post = @company.post
   end
 
   def edit
@@ -28,16 +29,16 @@ class CompaniesController < ApplicationController
   def update
     @company = Company.find_by(id: params[:id])
     @company.update(company_params)
-    redirect_to root_path
+    redirect_to company_path
   end
 
   def destroy
 
   end
-  
+
   private
   def company_params
-    params.require(:company).permit(:email)
+    params.require(:company).permit(:name, :display_picture)
   end
 
 end
