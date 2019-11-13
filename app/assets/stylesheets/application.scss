@@ -39,7 +39,11 @@
  .btn-nav:hover, .btn-submit:hover {
 	 	background-color: #006DD2;
 	 	color: #FFFFFF;
-	 }
+ }
+
+ .smol{
+ 	font-size: 15px;
+ }
 
  .btn-submit {
  	background-color: #3D9BF1;
@@ -79,35 +83,50 @@
 .card-img-overlay span {
 	font-weight: bold;
 	padding: 5%;
+}
 
- 	.tinder-btn{
- 		border-radius: 50%;
- 	}
+.tinder{
+	background-color: #E7E5E5;
+}
+
+.tinder-btn{
+ 	border-radius: 50%;
+ }
 
  @media only screen and (max-width: 700px) {
 
-    h1{
-      font-size: 30px !important;
-    }
+	h1{
+		font-size: 30px !important;
+	}
 
-    .card{
-      width: 70% !important;
-    }
+	.show-page{
+		width: 90% !important;
+	}
 
-    .form-group{
-      width: 90% !important;
-    }
+ 	.display-pic{
+ 		width: 70% !important;
+ 	}
 
-    .byebye{
-      display: none
-    }
+ 	.form-group{
+ 		width: 90% !important;
+ 	}
 
-    .tinder{
-      width: 90% !important;
-    }
+ 	.byebye{
+ 		display: none
+ 	}
 
-    .tinder-content{
-      width: 80% !important;
-    }
-  }
+ 	.tinder{
+ 		width: 90% !important;
+ 	}
+
+ 	.tinder-content{
+ 		width: 90% !important;
+ 	}
+
+	 .tinder-params{
+	 	font-size: 10px !important;
+	 }
+
+
+
 }

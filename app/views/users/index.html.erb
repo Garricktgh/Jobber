@@ -1,68 +1,77 @@
 <div class="container">
 
-	<% header = @company.name %>
+	<% if @post === nil %>
 
-	<% if header === nil %>
-		<% header = @company.email %>
+		<p class="display-4 text-center mt-5">No More Matches</p>
+
+	<% else %>
+
+		<% header = @company.name %>
+
+		<% if header === nil %>
+			<% header = @company.email %>
+		<% end %>
+
+		<div class="container tinder mt-5 mb-5" style="width: 80%">
+				<div class="row" style="width: 80%; margin: 0 auto">
+					<div class="mt-5 tinder-content" style="width: 30%; margin: 0 auto;">
+				  	<img src="https://www.pngfind.com/pngs/m/665-6659827_enterprise-comments-default-company-logo-png-transparent-png.png" class="card-img-top">
+				  </div>
+				  <div class="mt-5 tinder-content" style="width: 60%; margin: 0 auto;">
+				    <h2 class="text-center"><%= @post.job_title %></h2>
+				    <h4 class="text-center"><%= header %></h4>
+				    <div class="d-flex justify-content-around mt-4">
+							<button type="button" class="btn tinder-params btn-success"><%= @post.employment_type %></button>
+							<button type="button" class="btn tinder-params btn-success"><%= @post.industry %></button>
+				    </div>
+				    <div class="d-flex justify-content-around mt-4">
+				    	<button type="button" class="btn tinder-params btn-success"><%= @post.work_experience %></button>
+							<button type="button" class="btn tinder-params btn-success"><%= @post.education_level %></button>
+							<button type="button" class="btn tinder-params btn-success"><%= @post.expected_salary %></button>
+				    </div>
+				  </div>
+				</div>
+
+				<p class="text-center mt-5" style="width: 90%; margin: 0 auto;" >
+
+					<%= @post.job_description %>
+
+				</p>
+
+				<div class="row mt-4 pb-5">
+					<form class="col">
+					  <div class="form-group">
+					    <input type="number" class="form-control d-none" readonly="true" name="user_id" value=<%= @user.id %>>
+					  </div>
+					  <div class="form-group">
+					    <input type="number" class="form-control d-none" readonly="true" name="post_id" value=<%= @post.id %>>
+					  </div>
+					  <div class="row justify-content-center">
+					  	<button type="submit" class="tinder-btn btn-danger"><i class='bx bx-x bx-lg align-text-bottom'></i></button>
+					  </div>
+					</form>
+
+					<form class="col">
+					  <div class="form-group">
+					    <input type="number" class="form-control d-none" readonly="true" name="user_id" value=<%= @user.id %>>
+					  </div>
+					  <div class="form-group">
+					    <input type="number" class="form-control d-none" readonly="true" name="post_id" value=<%= @post.id %>>
+					  </div>
+					  <div class="row justify-content-center">
+					  	<button type="submit" class="tinder-btn btn-success"><i class='bx bx-check bx-lg align-text-bottom' ></i></i></button>
+					  </div>
+					</form>
+				</div>
+
+		</div>
+
+
 	<% end %>
 
-	<div class="container tinder bg-secondary mt-5 mb-5" style="width: 80%">
-		<div class="row" style="width: 80%; margin: 0 auto">
-			<div class="mt-5 tinder-content" style="width: 30%; margin: 0 auto;">
-		  	<img src="https://www.pngfind.com/pngs/m/665-6659827_enterprise-comments-default-company-logo-png-transparent-png.png" class="card-img-top">
-		  </div>
-		  <div class="mt-5 tinder-content" style="width: 60%; margin: 0 auto;">
-		    <h2 class="text-center"><%= @post.job_title %></h2>
-		    <h4 class="text-center"><%= header %></h4>
-		    <div class="d-flex justify-content-around mt-4">
-					<button type="button" class="btn btn-success"><%= @post.employment_type %></button>
-					<button type="button" class="btn btn-success"><%= @post.industry %></button>
-		    </div>
-		    <div class="d-flex justify-content-around mt-4">
-		    	<button type="button" class="btn btn-success"><%= @post.work_experience %></button>
-					<button type="button" class="btn btn-success"><%= @post.education_level %></button>
-					<button type="button" class="btn btn-success"><%= @post.expected_salary %></button>
-		    </div>
-		  </div>
-		</div>
-
-		<p class="text-center mt-5" style="width: 90%; margin: 0 auto;" >
-
-			<%= @post.job_description %>
-
-		</p>
-
-		<div class="row mt-4 pb-5">
-
-
-			<form class="col">
-			  <div class="form-group">
-			    <input type="number" class="form-control" placeholder=<%= @user.id %>>
-			  </div>
-			  <div class="form-group">
-			    <input type="number" class="form-control" placeholder=<%= @post.id %>>
-			  </div>
-			  <div class="row justify-content-center">
-			  	<button type="submit" class="tinder-btn btn-danger"><i class='bx bx-x bx-lg align-text-bottom'></i></button>
-			  </div>
-			</form>
 
 
 
-			<form class="col">
-			  <div class="form-group">
-			    <input type="number" class="form-control" placeholder=<%= @user.id %>>
-			  </div>
-			  <div class="form-group">
-			    <input type="number" class="form-control" placeholder=<%= @post.id %>>
-			  </div>
-			  <div class="row justify-content-center">
-			  	<button type="submit" class="tinder-btn btn-success"><i class='bx bx-check bx-lg align-text-bottom' ></i></i></button>
-			  </div>
-			</form>
-
-		</div>
-	</div>
 
 
 
