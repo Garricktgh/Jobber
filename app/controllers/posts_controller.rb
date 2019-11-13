@@ -1,16 +1,7 @@
 class PostsController < ApplicationController
-
   before_action :authenticate_company!
-
-
+  
   def index
-
-
-    @company = current_company
-    @post = Post.find_by(id: params[:id])
-    @statuses = Status.where(post_id: @post).pluck(:user_id)
-    @user = User.where(work_experience: @post.work_experience, industry: @post.industry, education_level: @post.education_level, employment_type: @post.employment_type, expected_salary: @post.expected_salary).where.not(id: @statuses)
-
 
   end
 
@@ -30,13 +21,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    # @post = Post.find_by(id: params[:id])
-    # @users = User.where(work_experience: @post.work_experience, industry: @post.industry, education_level: @post.education_level, employment_type: @post.employment_type, expected_salary: @post.expected_salary)
-
     @post = Post.find_by(id: params[:id])
     @company = current_company
-
-
   end
 
   def edit
