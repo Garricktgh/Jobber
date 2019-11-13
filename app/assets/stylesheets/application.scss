@@ -48,6 +48,37 @@
  	padding: 0.5em 2em;
  }
 
+.landing-page {
+ 	border: none;
+ }
+
+.landing-page img {
+	height: 90vh;
+ 	width: auto;
+ 	object-fit: cover;
+}
+
+.card-title {
+	font-weight: 800;
+	margin-left: 10%;
+	margin-top: 20%;
+	line-height: 1.5;
+}
+
+.card-text {
+	font-size: 18px;
+	font-weight: bold;
+	margin-left: 10%;
+	margin-top: 0;
+}
+
+#first-button {
+	margin-left: 10%;
+}
+
+.card-img-overlay span {
+	font-weight: bold;
+	padding: 5%;
 
  	.tinder-btn{
  		border-radius: 50%;
@@ -78,7 +109,4 @@
  	.tinder-content{
  		width: 80% !important;
  	}
-
-
-
 }
