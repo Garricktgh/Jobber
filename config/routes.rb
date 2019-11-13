@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users
   resources :companies
   resources :posts do
-    resources :matches, only: [:index]
+    resources :suggestions, only: [:index]
   end
   resources :statuses
   resources :messages
