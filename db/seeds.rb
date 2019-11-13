@@ -41,14 +41,14 @@ ActiveRecord::Base.transaction do
     Post.create!(company_id: 1, job_title: FFaker::Job.title,  job_description: FFaker::AWS.product_description, employment_type: "Full-time", industry: "Tech", work_experience: "1-3 years", education_level: "Master", expected_salary: "$2k-3k")
   end
 
-  Status.create!(post_id: 1, user_id: 1, user_approval: "approved")
-  Status.create!(post_id: 2, user_id: 1, user_approval: "approved")
-  Status.create!(post_id: 3, user_id: 1, user_approval: "approved")
-  Status.create!(post_id: 4, user_id: 1, user_approval: "approved")
+  Status.create!(post_id: 1, user_id: 1, user_approval: "accept")
+  Status.create!(post_id: 2, user_id: 1, user_approval: "accept")
+  Status.create!(post_id: 3, user_id: 1, user_approval: "accept")
+  Status.create!(post_id: 4, user_id: 1, user_approval: "deny")
 
-  Status.create!(post_id: 4, user_id: 2, post_approval: "approved")
-  Status.create!(post_id: 5, user_id: 3, post_approval: "approved")
-  Status.create!(post_id: 6, user_id: 4, post_approval: "approved")
-  Status.create!(post_id: 7, user_id: 5, post_approval: "approved")
+  Status.create!(post_id: 1, user_id: 2, post_approval: "accept")
+  Status.create!(post_id: 1, user_id: 3, post_approval: "accept")
+  Status.create!(post_id: 1, user_id: 4, post_approval: "accept")
+  Status.create!(post_id: 1, user_id: 5, post_approval: "deny")
   
 end

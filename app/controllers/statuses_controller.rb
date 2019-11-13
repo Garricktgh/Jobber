@@ -1,4 +1,4 @@
-class StatusController < ApplicationController
+class StatusesController < ApplicationController
   def create
     @status = Status.find_or_initialize_by(post_id: params[:post_id], user_id: params[:user_id])
     if params[:post_approval].present?
