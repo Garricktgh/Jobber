@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-
   before_action :authenticate_user!
-
 
   def index
     @user = current_user
@@ -11,7 +9,6 @@ class UsersController < ApplicationController
     if (@post)
       @company = Company.where(id: @post.company_id).first
     end
-    # Post.where(work_experience: User.work_experience, industry: User.industry, education_level: User.education_level, employment_type: User.employment_type, expected_salary: User.expected_salary).where.not(id: Statuses.post_id)
   end
 
   def new
