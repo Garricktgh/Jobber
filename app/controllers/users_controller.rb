@@ -6,7 +6,9 @@ class UsersController < ApplicationController
     @statuses = Status.where(user_id: @user).pluck(:post_id)
     @posts = Post.where(work_experience: @user.work_experience, industry: @user.industry, education_level: @user.education_level, employment_type: @user.employment_type, expected_salary: @user.expected_salary).where.not(id: @statuses)
     @post = @posts.first
-    @company = Company.where(id: @post.company_id).first
+    if (@post)
+      @company = Company.where(id: @post.company_id).first
+    end
   end
 
   def new
