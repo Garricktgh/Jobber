@@ -95,6 +95,7 @@
 
 
 .matched{
+	background-color: #E5E5E5;
 	width: 90%;
 	margin: 0 auto;
 	display: flex;
@@ -114,9 +115,10 @@
 }
 
 .match-message{
+	background-color: rgba(229, 229, 229, 0.5);
 	width: 90%;
 	margin: 0 auto;
-	padding-top: 2%;
+	padding: 2% 0 2%;
 }
 
  @media only screen and (max-width: 700px) {

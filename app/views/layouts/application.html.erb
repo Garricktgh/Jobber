@@ -28,12 +28,11 @@
 		    <ul class="navbar-nav mr-auto">
 		    </ul>
 				<% if company_signed_in? && user_signed_in? == false %>
-					<a class="navbar-brand smol mt-3" href="/companies">Search <i class='bx bx-search bx-sm' ></i></a>
 					<a class="navbar-brand smol mt-3" href="/companies/<%= current_company.id %>">Profile <i class='bx bxs-user bx-sm'></i></a>
 					<a class="navbar-brand smol mt-3" href="/messages">Message <i class='bx bx-message-dots bx-sm' ></i></a>
 				<% end %>
 				<% if company_signed_in? == false && user_signed_in? %>
-					<a class="navbar-brand smol mt-3" href="/users">Search <i class='bx bx-search bx-sm' ></i></a>
+					<a class="navbar-brand smol mt-3" href="/users">Discover <i class='bx bx-search bx-sm' ></i></a>
 					<a class="navbar-brand smol mt-3" href="/users/<%= current_user.id %>">Profile <i class='bx bxs-user bx-sm'></i></a>
 					<a class="navbar-brand smol mt-3" href="/messages">Message <i class='bx bx-message-dots bx-sm' ></i></a>
 				<% end %>
