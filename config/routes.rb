@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root 'landing_page#index'
   resources :users
   resources :companies
-  resources :posts
-  resources :statueses
+  resources :posts do
+    resources :matches, only: [:index]
+  end
+  resources :statuses
   resources :messages
 end
