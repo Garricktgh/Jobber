@@ -38,7 +38,7 @@
 		  </p>
 
 		  <p>
-		  	<%= form.label :expected_salary %><br>
+		  	<%= form.label :expected_salary %> (monthly)<br>
 				<%= form.select :expected_salary, Post::EXPECTED_SALARIES, {:include_blank => 'Choose an expected salary', :disabled => 1}, {:class => "form-control", :required => "true"} %>
 		  </p>
 

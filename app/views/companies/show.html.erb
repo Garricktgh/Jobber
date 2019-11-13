@@ -7,10 +7,10 @@
 	<% end %>
 
 	<div class="row justify-content-center mt-5">
-		<div class="card text-center" style="width: 30%">
+		<div class="card display-pic" style="width: 30%;">
 		  <img class="card-img-top mt-4" style="width: 50%; margin: 0 auto;" alt="company logo" src=<%= @company.display_picture %>>
 		  <div class="card-body">
-		    <h2 class="card-title"><%= header %></h2>
+		    <h2 class="card-title text-center"><%= header %></h2>
 		  </div>
 		</div>
 	</div>
@@ -19,8 +19,6 @@
 
 
 	<div class="text-center mt-3 mb-5">
-		<%= link_to 'Back', company_path, {:class => "btn btn-outline-secondary"} %>
-
 		<%= link_to 'Edit', edit_company_path(@company), {:class => "btn btn-outline-primary"} %>
 	</div>
 
@@ -35,7 +33,7 @@
 		      <th scope="col">#</th>
 		      <th scope="col">Job Title</th>
 		      <th class="byebye" scope="col">Job Description</th>
-		      <th scope="col">Date Posted</th>
+		      <th class="byebye" scope="col">Date Posted</th>
 		      <th scope="col">Edit</th>
 		      <th scope="col">Delete</th>
 		    </tr>
@@ -46,7 +44,7 @@
 			      <th scope="row"><%= x.id %></th>
 			      <th scope="col"><%= link_to x.job_title, post_path(x) %></th>
 			      <th class="byebye" scope="col"><%= x.job_description %></th>
-			      <th scope="col"><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %></th>
+			      <th class="byebye" scope="col"><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %></th>
 			      <th scope="col"><%= link_to 'Edit', edit_post_path(x), {:class => "btn btn-sm btn-warning"} %></th>
 			      <th scope="col"><%= link_to 'Delete', post_path(x), :class => "btn btn-sm btn-secondary",
 		        method: :delete,
