@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_company!
-  
+
   def index
 
   end
@@ -19,6 +19,7 @@ class PostsController < ApplicationController
       render 'new'
     end
   end
+
 
   def show
     @post = Post.find_by(id: params[:id])
