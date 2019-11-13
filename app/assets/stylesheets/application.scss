@@ -17,19 +17,17 @@
  	font-family: 'Poppins', sans-serif;
  }
 
- .container {
-	 	h2 {
-	 		font-size: 30px;
-	 	}
- }
+	h1{
+		font-size: 50px;
+	}
 
  .navbar {
  	background-color: #3D9BF1;
- 	padding: 1% 10%;
  }
 
  .navbar-brand img {
  	width: 70%;
+ 	margin-left: 10%;
  }
 
  .btn-nav {
@@ -81,4 +79,34 @@
 .card-img-overlay span {
 	font-weight: bold;
 	padding: 5%;
+
+ 	.tinder-btn{
+ 		border-radius: 50%;
+ 	}
+
+ @media only screen and (max-width: 700px) {
+
+	h1{
+		font-size: 30px !important;
+	}
+
+ 	.card{
+ 		width: 70% !important;
+ 	}
+
+ 	.form-group{
+ 		width: 90% !important;
+ 	}
+
+ 	.byebye{
+ 		display: none
+ 	}
+
+ 	.tinder{
+ 		width: 90% !important;
+ 	}
+
+ 	.tinder-content{
+ 		width: 80% !important;
+ 	}
 }

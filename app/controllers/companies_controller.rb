@@ -1,6 +1,12 @@
 class CompaniesController < ApplicationController
+
+  before_action :authenticate_company!
+
   def index
-    @companies = Company.where()
+
+    @company = current_company
+    @user = User.first
+
   end
 
   def new
