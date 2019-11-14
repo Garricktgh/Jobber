@@ -1,6 +1,9 @@
 class MessagesController < ApplicationController
   def index
-    @messages = Message.where()
+    @matches = Status.where(user_approval: "accept", post_approval: "accept")
+    if current_user?
+      @messages = messages.where()
+    
   end
 
   def new
