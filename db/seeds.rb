@@ -46,7 +46,7 @@ ActiveRecord::Base.transaction do
   Status.create!(post_id: 3, user_id: 1, user_approval: "accept", post_approval: "accept")
   Status.create!(post_id: 4, user_id: 1, user_approval: "deny")
 
-  Status.create!(post_id: 1, user_id: 2, post_approval: "accept", post_approval: "accept")
+  Status.create!(post_id: 1, user_id: 2, post_approval: "accept", user_approval: "accept")
   Status.create!(post_id: 1, user_id: 3, post_approval: "accept", user_approval: "accept")
   Status.create!(post_id: 1, user_id: 4, post_approval: "accept", user_approval: "accept")
   Status.create!(post_id: 1, user_id: 5, post_approval: "deny")
