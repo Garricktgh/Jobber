@@ -19,6 +19,7 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find_by(id: params[:id])
+    @post = Post.find_by(id: params[:id])
   end
 
   def edit
@@ -34,7 +35,7 @@ class MessagesController < ApplicationController
   def destroy
 
   end
-  
+
   private
   def message_params
     params.require(:message).permit(:content)

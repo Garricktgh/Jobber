@@ -1,0 +1,36 @@
+<div class="container msg-box">
+<!--Message header-->
+	<div class="row msg-header">
+		<div class="col-2 msg-logo-details">
+			<%= image_tag 'company-40-282989.png', :class => "msg-logo" %>
+		</div>
+
+		<div class="col-7 msg-recipient-details">
+			<ul>
+				<li><%= link_to @message.post.job_title, post_path %></li>
+				<li>Company Name</li>
+			</ul>
+		</div>
+		<div class="col-3 msg-matched-date">
+			<ul>
+				<li>Matched On</li>
+				<li>Date-of-match</li>
+			</ul>
+		</div>
+	</div>
+	<!---Message portion--->
+	<div class = "msg-main">
+			<div class="row msg-content" id ="msg-sender"><%= @message.content %></div>
+			<div class="row msg-content" id="msg-recipient">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.</div>
+			<div class="row msg-content" id ="msg-sender">Ok lor, hahahaha</div>
+			<div class="row msg-content" id="msg-recipient">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.</div>
+			<div class="row msg-content" id ="msg-sender">Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. </div>
+ </div>
+
+ <div class="row msg-text-field align-self-end">
+		<%= form_with scope: :message, local: true do |form| %>
+			<%= form.text_area :content, {:class => "form-control msg-text-area", :minlength => 1, :rows => 3, :cols => 200, :required => "true", :placeholder => "Write a message..."} %>
+		<%= form.submit "Send", class: "btn btn-outline-primary msg-text-button" %>
+		<% end %>
+	</div>
+</div>
