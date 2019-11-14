@@ -4,23 +4,14 @@ class CompaniesController < ApplicationController
 
   def index
 
-    @company = current_company
-    @user = User.first
-
   end
 
   def new
-    @company = Company.new
+
   end
 
   def create
-    @company = Company.new(company_params)
 
-    if(@company.save)
-      redirect_to @company
-    else
-      render 'new'
-    end
   end
 
   def show
@@ -34,8 +25,27 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find_by(id: params[:id])
-    @company.update(company_params)
-    redirect_to company_path
+
+
+
+   if (company_params[:display_picture].is_a?(String))
+
+      @company.update(company_params)
+      redirect_to company_path
+
+    else
+
+      uploaded_file = company_params[:display_picture].path
+      cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+
+      @company.update(company_params)
+      @company.display_picture = cloudnary_file["url"]
+      @company.save
+
+      redirect_to company_path
+
+    end
+
   end
 
   def destroy
