@@ -41,14 +41,25 @@ ActiveRecord::Base.transaction do
     Post.create!(company_id: 1, job_title: FFaker::Job.title,  job_description: FFaker::AWS.product_description, employment_type: "Full-time", industry: "Tech", work_experience: "1-3 years", education_level: "Master", expected_salary: "$2k-3k")
   end
 
-  Status.create!(post_id: 1, user_id: 1, user_approval: "approved")
-  Status.create!(post_id: 2, user_id: 1, user_approval: "approved")
-  Status.create!(post_id: 3, user_id: 1, user_approval: "approved")
-  Status.create!(post_id: 4, user_id: 1, user_approval: "approved")
+  Status.create!(post_id: 1, user_id: 1, user_approval: "accept", post_approval: "accept")
+  Status.create!(post_id: 2, user_id: 1, user_approval: "accept", post_approval: "accept")
+  Status.create!(post_id: 3, user_id: 1, user_approval: "accept", post_approval: "accept")
+  Status.create!(post_id: 4, user_id: 1, user_approval: "deny")
 
-  Status.create!(post_id: 4, user_id: 2, post_approval: "approved")
-  Status.create!(post_id: 5, user_id: 3, post_approval: "approved")
-  Status.create!(post_id: 6, user_id: 4, post_approval: "approved")
-  Status.create!(post_id: 7, user_id: 5, post_approval: "approved")
+  Status.create!(post_id: 1, user_id: 2, post_approval: "accept", user_approval: "accept")
+  Status.create!(post_id: 1, user_id: 3, post_approval: "accept", user_approval: "accept")
+  Status.create!(post_id: 1, user_id: 4, post_approval: "accept", user_approval: "accept")
+  Status.create!(post_id: 1, user_id: 5, post_approval: "deny")
+
+  Message.create!(post_id: 1, user_id: 1, content: "Hi, i like your profile pic", sender:"post")
+  Message.create!(post_id: 1, user_id: 1, content: "Hi, thank you, this is fun", sender:"user")
+  Message.create!(post_id: 1, user_id: 1, content: "this is a job interview", sender:"post")
+  Message.create!(post_id: 1, user_id: 1, content: "okay", sender:"user")
+  Message.create!(post_id: 1, user_id: 1, content: "you're hired", sender:"post")
+  Message.create!(post_id: 2, user_id: 1, content: "Hi, i like your profile pic", sender:"post")
+  Message.create!(post_id: 2, user_id: 1, content: "Hi, thank you, this is terrible, this is sexual harrassment?", sender:"user")
+  Message.create!(post_id: 2, user_id: 1, content: "this is a job interview, yip yip", sender:"post")
+  Message.create!(post_id: 2, user_id: 1, content: "okay, whoop", sender:"user")
+  Message.create!(post_id: 2, user_id: 1, content: "you're hired, banana", sender:"post")
   
 end

@@ -97,6 +97,7 @@
 	height: 70vh;
 	margin-top: 3%;
 }
+
 .msg-main {
 	background-color: #E5E5E5;
 	height: 80%;
@@ -188,6 +189,37 @@
 	height: 10%;
 }
 
+.matched{
+	background-color: #3D9BF1;
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+	overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+.match-content{
+	width: 150px;
+	margin: 1% 3%;
+	border-radius: 50%;
+}
+
+.match-message{
+	background-color: rgba(229, 229, 229, 0.5);
+	width: 90%;
+	margin: 0 auto;
+	padding: 2% 0 2%;
+}
+
+.match-job-content{
+	font-size: 16px;
+}
+
  @media only screen and (max-width: 700px) {
 
 	h1{
@@ -215,12 +247,33 @@
  	}
 
  	.tinder-content{
- 		width: 90% !important;
+ 		width: 100% !important;
  	}
 
-	 .tinder-params{
-	 	font-size: 10px !important;
-	 }
+	.tinder-params{
+		font-size: 12px !important;
+	}
+
+	.match-content{
+		width: 70px;
+		margin: 1% 5%;
+		border-radius: 50%;
+	}
+
+	.match-message{
+		width: 90%;
+		margin: 0 auto;
+		padding-top: 2%;
+		text-align: center;
+	}
+
+	.match-job-title{
+		font-size: 13px;
+	}
+
+	.match-job-content{
+		font-size: 10px;
+	}
 
 	 .msg-matched-date {
 	 	font-size: 2vw;
