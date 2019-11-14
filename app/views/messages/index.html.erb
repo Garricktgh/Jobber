@@ -6,46 +6,32 @@
 	<h4 class="text-center">Matches</h4>
 
 	<div class="card matched text-white" >
-		<div class="match-content">
-			<a href="/messages">
-				<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-			</a>
-		</div>
-		<div class="match-content">
-			<a href="/messages">
-				<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-			</a>
-		</div>
-		<div class="match-content">
-			<a href="/messages">
-				<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-			</a>
-		</div>
-		<div class="match-content">
-			<a href="/messages">
-				<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-			</a>
-		</div>
-		<div class="match-content">
-			<a href="/messages">
-				<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-			</a>
-		</div>
-		<div class="match-content">
-			<a href="/messages">
-				<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-			</a>
-		</div>
-		<div class="match-content">
-			<a href="/messages">
-				<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-			</a>
-		</div>
-		<div class="match-content">
-			<a href="/messages">
-				<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-			</a>
-		</div>
+		<% if company_signed_in? %>
+
+			  <% @matches.each do |x| %>
+					<div class="match-content">
+						<% post = Post.where(id: x.post_id).first %>
+						<a href="/messages">
+							<img class="match-content" src=<%= User.where(id: x.user).first.display_picture %>>
+						</a>
+						<p class="lead text-center match-job-title"><%= post.job_title %></p>
+					</div>
+			  <% end %>
+
+		<% elsif user_signed_in? %>
+
+			  <% @matches.each do |x| %>
+					<div class="match-content">
+						<% post = Post.where(id: x.post_id).first %>
+						<% p post %>
+						<a href="/messages">
+							<img class="match-content" src=<%= Company.where(id: post.company_id).first.display_picture %>>
+						</a>
+						<p class="lead text-center match-job-title"><%= post.job_title %></p>
+					</div>
+			  <% end %>
+
+		<% end %>
 	</div>
 
 	<div class="card match-message">
