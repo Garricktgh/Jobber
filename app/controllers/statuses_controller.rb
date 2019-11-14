@@ -5,7 +5,7 @@ class StatusesController < ApplicationController
       @status.update_attributes(post_approval: status_params[:post_approval])
       @status.save
       redirect_to post_suggestions_path(status_params[:post_id])
-    elsif params[:user_approval].present?
+    elsif status_params[:user_approval].present?
       @status.update_attributes(user_approval: status_params[:user_approval])
       @status.save
       redirect_to users_path
