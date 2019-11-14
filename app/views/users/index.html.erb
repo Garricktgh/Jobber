@@ -44,15 +44,15 @@
 							<div class="form-group mt-5 mb-5" style="width: 50%; margin: 0 auto">
 
 							  <p>
-							    <%= form.number_field :user_id, {:class => "form-control", :readonly => "true", :value => @user.id } %>
+							    <%= form.number_field :user_id, {:class => "form-control d-none", :readonly => "true", :value => @user.id } %>
 							  </p>
 
 							  <p>
-							    <%= form.number_field :post_id, {:class => "form-control", :readonly => "true", :value => @post.id } %>
+							    <%= form.number_field :post_id, {:class => "form-control d-none", :readonly => "true", :value => @post.id } %>
 							  </p>
 
 							  <p>
-							    <%= form.text_field :user_approval, {:class => "form-control", :readonly => "true", :value => "deny" } %>
+							    <%= form.text_field :user_approval, {:class => "form-control d-none", :readonly => "true", :value => "deny" } %>
 							  </p>
 
 								<%= button_tag type: 'submit', class: "tinder-btn btn-danger" do %>
@@ -67,15 +67,15 @@
 							<div class="form-group mt-5 mb-5" style="width: 50%; margin: 0 auto">
 
 							  <p>
-							    <%= form.number_field :user_id, {:class => "form-control", :readonly => "true", :value => @user.id } %>
+							    <%= form.number_field :user_id, {:class => "form-control d-none", :readonly => "true", :value => @user.id } %>
 							  </p>
 
 							  <p>
-							    <%= form.number_field :post_id, {:class => "form-control", :readonly => "true", :value => @post.id } %>
+							    <%= form.number_field :post_id, {:class => "form-control d-none", :readonly => "true", :value => @post.id } %>
 							  </p>
 
 							  <p>
-							    <%= form.text_field :user_approval, {:class => "form-control", :readonly => "true", :value => "accept" } %>
+							    <%= form.text_field :user_approval, {:class => "form-control d-none", :readonly => "true", :value => "accept" } %>
 							  </p>
 
 								<%= button_tag type: 'submit', class: "tinder-btn btn-success" do %>
