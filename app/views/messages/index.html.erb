@@ -6,52 +6,142 @@
 	<h4 class="text-center">Matches</h4>
 
 	<div class="card matched text-white" >
-		<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-		<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-		<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-		<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-		<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-		<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-		<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
+		<% if company_signed_in? %>
+
+			  <% @matches.each do |x| %>
+			  	<% post = Post.where(id: x.post_id).first %>
+					<% user = User.where(id: x.user_id).first %>
+					<% header = user.name %>
+					<% if header == nil %>
+						<% header = @user.email %>
+					<% end %>
+					<div class="match-content">
+						<a href="/messages">
+							<img class="match-content" src=<%= User.where(id: x.user_id).first.display_picture %>>
+						</a>
+						<!-- Button trigger modal -->
+						<div class="text-center mt-2">
+							<a class="match-job-content text-white" data-toggle="modal" href="#qwerty<%= user.id %>">
+							  <%= header %>
+								<p class="lead text-center match-job-content mt-2"><%= post.job_title %></p>
+							</a>
+						</div>
+						<!-- Modal -->
+						<div class="modal fade" id="qwerty<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+						  <div class="modal-dialog modal-dialog-centered" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title text-dark" id="exampleModalLongTitle"><%= header %></h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body text-dark">
+						      	<p><strong>Employment Type: </strong><%= user.employment_type %></p>
+						      	<p><strong>Industry: </strong><%= user.industry %></p>
+						      	<p><strong>Work Experience: </strong><%= user.work_experience %></p>
+						      	<p><strong>Education Level: </strong><%= user.education_level %></p>
+						      	<p><strong>Expected Salary: </strong><%= user.expected_salary %></p>
+						      	<p><strong>Self Description: </strong></p>
+						      	<p><%= user.description %></p>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+					</div>
+			  <% end %>
+
+		<% elsif user_signed_in? %>
+
+			  <% @matches.each do |x| %>
+					<div class="match-content">
+						<% post = Post.where(id: x.post_id).first %>
+						<% p post %>
+						<% title = post.job_title %>
+						<a href="/messages">
+							<img class="match-content" src=<%= Company.where(id: post.company_id).first.display_picture %>>
+						</a>
+						<!-- Button trigger modal -->
+						<div class="text-center mt-2">
+							<a class="match-job-content text-white" data-toggle="modal" href="#qwerty<%= post.id %>">
+							  <%= post.job_title %>
+							</a>
+						</div>
+						<!-- Modal -->
+						<div class="modal fade" id="qwerty<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+						  <div class="modal-dialog modal-dialog-centered" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title text-dark" id="exampleModalLongTitle"><%= post.job_title %></h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body text-dark">
+						      	<p><strong>Employment Type: </strong><%= post.employment_type %></p>
+						      	<p><strong>Industry: </strong><%= post.industry %></p>
+						      	<p><strong>Work Experience: </strong><%= post.work_experience %></p>
+						      	<p><strong>Education Level: </strong><%= post.education_level %></p>
+						      	<p><strong>Expected Salary: </strong><%= post.expected_salary %></p>
+						      	<p><strong>Job Description: </strong></p>
+						      	<p><%= post.job_description %></p>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+					</div>
+			  <% end %>
+
+		<% end %>
 	</div>
 
-	<div class="card match-message">
-	  <div class="row no-gutters">
-	    <div class="col-md-3 text-center">
-				<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-	    </div>
-	    <div class="col-md-8">
-        <h4 class="mt-3">Job Position</h4>
-        <p class="lead">Company Name</p>
-        <p>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-	    </div>
-	    <div class="col-md-1">
-        <p><small>29/11/2019</small></p>
-	    </div>
-	  </div>
-	</div>
 
 
-	<div class="card match-message">
-	  <div class="row no-gutters">
-	    <div class="col-md-3 text-center">
-				<img class="match-content" src="http://www.baytekent.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg">
-	    </div>
-	    <div class="col-md-8">
-        <h4 class="mt-3">Job Position</h4>
-        <p class="lead">Company Name</p>
-        <p>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-	    </div>
-	    <div class="col-md-1">
-        <p><small>29/11/2019</small></p>
-	    </div>
-	  </div>
-	</div>
+	<% if company_signed_in? %>
 
+	  <% @messages.each do |x| %>
+	  	<% post = Post.where(id: x.post_id).first %>
+			<% user = User.where(id: x.user_id).first %>
+			<div class="card match-message">
+			  <div class="row no-gutters">
+			    <div class="col-md-3 text-center">
+						<img class="match-content" src=<%= User.where(id: user.id).first.display_picture %>>
+			    </div>
+			    <div class="col-md-8">
+		        <a href="/messages" class="stretched-link"><h4 class="mt-3"><%= post.job_title %></h4></a>
+		        <p class="lead"><%= User.where(id: user.id).first.name %></p>
+		        <p><%= x.content %></p>
+			    </div>
+			    <div class="col-md-1">
+		        <p><small><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %></small></p>
+			    </div>
+			  </div>
+			</div>
+	  <% end %>
 
+	<% elsif user_signed_in? %>
 
+	  <% @messages.each do |x| %>
+	  	<% post = Post.where(id: x.post_id).first %>
+			<% user = User.where(id: x.user_id).first %>
+			<div class="card match-message">
+			  <div class="row no-gutters">
+			    <div class="col-md-3 text-center">
+						<img class="match-content" src=<%= Company.where(id: post.company_id).first.display_picture %>>
+			    </div>
+			    <div class="col-md-8">
+		        <a href="/messages" class="stretched-link"><h4 class="mt-3"><%= post.job_title %></h4></a>
+		        <p class="lead"><%= Company.where(id: post.company_id).first.name %></p>
+		        <p><%= x.content %></p>
+			    </div>
+			    <div class="col-md-1">
+		        <p><small><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %></small></p>
+			    </div>
+			  </div>
+			</div>
+	  <% end %>
 
-
+	<% end %>
 
 
 
