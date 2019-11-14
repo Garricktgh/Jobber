@@ -12,17 +12,11 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+
   end
 
   def create
-    @user = User.new(company_params)
 
-    if(@user.save)
-      redirect_to @user
-    else
-      render 'new'
-    end
   end
 
   def show
@@ -35,8 +29,27 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.update(user_params)
-    redirect_to user_path
+
+
+    if (user_params[:display_picture].is_a?(String))
+
+      @user.update(user_params)
+      redirect_to user_path
+
+    else
+
+      uploaded_file = user_params[:display_picture].path
+      cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+
+      @user.update(user_params)
+      @user.display_picture = cloudnary_file["url"]
+      @user.save
+
+      redirect_to user_path
+
+    end
+
+
   end
 
   def destroy

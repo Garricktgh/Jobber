@@ -13,7 +13,36 @@
 
 		  <p>
 		    <%= form.label :display_picture %><br>
-		    <%= form.url_field :display_picture, {:class => "form-control"} %>
+				<div id="accordion">
+				  <div class="card">
+				    <div class="btn btn-outline-primary" id="headingOne">
+				      <p class="mb-0">
+				        <a class="nav-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				          Image URL:
+				        </a>
+				      </p>
+				    </div>
+				    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+				      <div class="card-body">
+								<%= form.url_field :display_picture, {:class => "form-control"} %>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="card">
+				    <div class="btn btn-outline-primary" id="headingTwo">
+				      <p class="mb-0">
+				        <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				          File Upload:
+				        </a>
+				      </p>
+				    </div>
+				    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+				      <div class="card-body">
+								<%= form.file_field :display_picture, {:class => "form-control"} %>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 		  </p>
 
 		  <%= link_to 'Back',company_path, {:class => "btn btn-outline-secondary"} %>
