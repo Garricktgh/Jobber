@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
 
   def index
+
     @messages = Message.where()
 
     if (user_signed_in?)
@@ -13,7 +14,6 @@ class MessagesController < ApplicationController
       @matches = Status.where(post_id: [@post.ids], post_approval: "approved", user_approval: "approved")
       @messages = Message.select('DISTINCT ON ("user_id") *').order(:user_id, created_at: :desc, id: :desc).where(post_id: [@post.ids])
     end
-
 
   end
 
