@@ -13,40 +13,44 @@ class MessagesController < ApplicationController
     else
       redirect_to root_path
     end
+  end
 
+  def chat
+    @messages = Message.where(user_id: message_params[:user_id], post_id: message_params[:post_id]).order(created_at: :asc)
+    @user = User.find_by(id: message_params[:user_id])
+    @post = Post.find_by(id: message_params[:post_id])
+    @status = Status.where(user_id: message_params[:user_id], post_id: message_params[:post_id])
+  end
+
+  def refresh
+    @messages = Message.where(user_id: message_params[:user_id], post_id: message_params[:post_id]).order(created_at: :asc)
+    @user = User.find_by(id: message_params[:user_id])
+    @post = Post.find_by(id: message_params[:post_id])
+    @status = Status.where(user_id: message_params[:user_id], post_id: message_params[:post_id])
   end
 
   def new
-    @message = Message.new
+
   end
 
   def create
     @message = Message.new(message_params)
-    if (company_signed_in?)
-      @message.sender = "post"
-
-      elsif user_signed_in?
-        @message.sender = "user"
-    end
-
-    #@message.user_id =
-    #@message.post_id =
-
-
-    if(@message.save)
-      redirect_to message_path
-    else
-      redirect_to message_path
-    end
+    @message.save
+    @messages = Message.where(user_id: message_params[:user_id], post_id: message_params[:post_id]).order(created_at: :asc)
+    redirect(path: '/messages/chat?#{message_params}')
   end
 
-  def chat
-   @messages = Message.where(user_id: message_params[:user_id], post_id: message_params[:post_id]).order(created_at: :desc)
-   @user = User.find_by(id: message_params[:user_id])
-   @post = Post.find_by(id: message_params[:post_id])
-   @status = Status.where(user_id: message_params[:user_id], post_id: message_params[:post_id])
+  def show
+
   end
 
+  def edit
+
+  end
+
+  def update
+
+  end
 
   def destroy
 
