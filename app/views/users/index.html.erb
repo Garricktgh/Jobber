@@ -15,19 +15,19 @@
 		<div class="container tinder mt-5 mb-5" style="width: 80%">
 				<div class="row" style="width: 80%; margin: 0 auto">
 					<div class="mt-5 tinder-content" style="width: 30%; margin: 0 auto;">
-				  	<img src="https://www.pngfind.com/pngs/m/665-6659827_enterprise-comments-default-company-logo-png-transparent-png.png" class="card-img-top">
+				  	<img class="img-thumbnail" src="https://www.pngfind.com/pngs/m/665-6659827_enterprise-comments-default-company-logo-png-transparent-png.png" class="card-img-top">
 				  </div>
 				  <div class="mt-5 tinder-content" style="width: 60%; margin: 0 auto;">
 				    <h2 class="text-center"><%= @post.job_title %></h2>
 				    <h4 class="text-center"><%= header %></h4>
 				    <div class="d-flex justify-content-around mt-4">
-							<button type="button" class="btn tinder-params btn-success"><%= @post.employment_type %></button>
-							<button type="button" class="btn tinder-params btn-success"><%= @post.industry %></button>
+							<button class="btn tinder-params"><%= @post.employment_type %></button>
+							<button class="btn tinder-params"><%= @post.industry %></button>
 				    </div>
 				    <div class="d-flex justify-content-around mt-4">
-				    	<button type="button" class="btn tinder-params btn-success"><%= @post.work_experience %></button>
-							<button type="button" class="btn tinder-params btn-success"><%= @post.education_level %></button>
-							<button type="button" class="btn tinder-params btn-success"><%= @post.expected_salary %></button>
+				    	<button class="btn tinder-params"><%= @post.work_experience %></button>
+							<button class="btn tinder-params"><%= @post.education_level %></button>
+							<button class="btn tinder-params"><%= @post.expected_salary %></button>
 				    </div>
 				  </div>
 				</div>

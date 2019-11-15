@@ -1,9 +1,9 @@
 <div class="container mt-4 mb-5">
 
 	<div class="row justify-content-center">
-		<i class='bx bx-like bx-lg text-center'></i>
+		<i class='bx bx-like bx-lg text-center' style="color: #2B4162"></i>
 	</div>
-	<h4 class="text-center">Matches</h4>
+	<h4 class="text-center" style="color: #2B4162">Matches</h4>
 
 	<div class="card matched text-white" >
 		<% if company_signed_in? %>
@@ -16,12 +16,26 @@
 						<% header = @user.email %>
 					<% end %>
 					<div class="match-holder text-center">
-						<a href="/messages">
-							<img class="match-content" src=<%= User.where(id: x.user_id).first.display_picture %>>
-						</a>
+						<%= form_with scope: :message, url: messages_chat_path, local: true do |form| %>
+							<div>
+
+							  <p>
+							    <%= form.number_field :user_id, {:class => "form-control d-none", :readonly => "true", :value => x.user_id } %>
+							  </p>
+
+							  <p>
+							    <%= form.number_field :post_id, {:class => "form-control d-none", :readonly => "true", :value => x.post_id } %>
+							  </p>
+
+								<%= button_tag type: 'submit' do %>
+									<img class="match-content" src=<%= User.where(id: x.user_id).first.display_picture %>>
+						    <% end %>
+
+							</div>
+						<% end %>
 						<!-- Button trigger modal -->
 						<div class="text-center mt-2">
-							<a class="match-job-content text-white" data-toggle="modal" href="#qwerty<%= user.id %>">
+							<a class="match-job-content" data-toggle="modal" href="#qwerty<%= user.id %>">
 							 <strong><%= header %></strong>
 								<p class="lead text-center match-job-content mt-2"><%= post.job_title %></p>
 							</a>
@@ -36,7 +50,7 @@
 						          <span aria-hidden="true">&times;</span>
 						        </button>
 						      </div>
-						      <div class="modal-body text-dark">
+						      <div class="modal-body text-left text-dark">
 						      	<p><strong>Employment Type: </strong><%= user.employment_type %></p>
 						      	<p><strong>Industry: </strong><%= user.industry %></p>
 						      	<p><strong>Work Experience: </strong><%= user.work_experience %></p>
@@ -58,12 +72,26 @@
 						<% post = Post.where(id: x.post_id).first %>
 						<% p post %>
 						<% title = post.job_title %>
-						<a href="/messages">
-							<img class="match-content" src=<%= Company.where(id: post.company_id).first.display_picture %>>
-						</a>
+						<%= form_with scope: :message, url: messages_chat_path, local: true do |form| %>
+							<div>
+
+							  <p>
+							    <%= form.number_field :user_id, {:class => "form-control d-none", :readonly => "true", :value => x.user_id } %>
+							  </p>
+
+							  <p>
+							    <%= form.number_field :post_id, {:class => "form-control d-none", :readonly => "true", :value => x.post_id } %>
+							  </p>
+
+								<%= button_tag type: 'submit' do %>
+									<img class="match-content" src=<%= User.where(id: x.user_id).first.display_picture %>>
+						    <% end %>
+
+							</div>
+						<% end %>
 						<!-- Button trigger modal -->
 						<div class="text-center mt-2">
-							<a class="match-job-content text-white" data-toggle="modal" href="#qwerty<%= post.id %>">
+							<a class="match-job-content" data-toggle="modal" href="#qwerty<%= post.id %>">
 							  <%= post.job_title %>
 							</a>
 						</div>
@@ -77,7 +105,7 @@
 						          <span aria-hidden="true">&times;</span>
 						        </button>
 						      </div>
-						      <div class="modal-body text-dark">
+						      <div class="modal-body text-left text-dark">
 						      	<p><strong>Employment Type: </strong><%= post.employment_type %></p>
 						      	<p><strong>Industry: </strong><%= post.industry %></p>
 						      	<p><strong>Work Experience: </strong><%= post.work_experience %></p>
@@ -108,7 +136,9 @@
 						<img class="match-content" src=<%= User.where(id: user.id).first.display_picture %>>
 			    </div>
 			    <div class="col-md-8">
-		        <a href="/messages" class="stretched-link"><h4 class="mt-3"><%= post.job_title %></h4></a>
+		        <a href="/messages" class="stretched-link">
+		        	<h4 class="mt-3" style="color: #2B4162;"><%= post.job_title %></h4>
+		        </a>
 		        <p class="lead"><%= User.where(id: user.id).first.name %></p>
 		        <p><%= x.content %></p>
 			    </div>
@@ -130,7 +160,9 @@
 						<img class="match-content" src=<%= Company.where(id: post.company_id).first.display_picture %>>
 			    </div>
 			    <div class="col-md-8">
-		        <a href="/messages" class="stretched-link"><h4 class="mt-3"><%= post.job_title %></h4></a>
+		        <a href="/messages" class="stretched-link">
+		        	<h4 class="mt-3" style="color: #2B4162;"><%= post.job_title %></h4>
+		        </a>
 		        <p class="lead"><%= Company.where(id: post.company_id).first.name %></p>
 		        <p><%= x.content %></p>
 			    </div>
