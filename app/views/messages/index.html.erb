@@ -15,14 +15,14 @@
 					<% if header == nil %>
 						<% header = @user.email %>
 					<% end %>
-					<div class="match-content">
+					<div class="match-holder text-center">
 						<a href="/messages">
 							<img class="match-content" src=<%= User.where(id: x.user_id).first.display_picture %>>
 						</a>
 						<!-- Button trigger modal -->
 						<div class="text-center mt-2">
 							<a class="match-job-content text-white" data-toggle="modal" href="#qwerty<%= user.id %>">
-							  <%= header %>
+							 <strong><%= header %></strong>
 								<p class="lead text-center match-job-content mt-2"><%= post.job_title %></p>
 							</a>
 						</div>
@@ -54,7 +54,7 @@
 		<% elsif user_signed_in? %>
 
 			  <% @matches.each do |x| %>
-					<div class="match-content">
+					<div class="match-holder text-center">
 						<% post = Post.where(id: x.post_id).first %>
 						<% p post %>
 						<% title = post.job_title %>
