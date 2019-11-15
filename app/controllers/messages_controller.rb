@@ -40,7 +40,7 @@ class MessagesController < ApplicationController
    @messages = Message.where(user_id: message_params[:user_id], post_id: message_params[:post_id]).order(created_at: :desc)
    @user = User.find_by(id: message_params[:user_id])
    @post = Post.find_by(id: message_params[:post_id])
-   @status = Status.where(user_id: message_params[:user_id], post_id: message_params[:post_id])
+   @statuses = Status.where(user_id: message_params[:user_id], post_id: message_params[:post_id])
   end
 
   def destroy
