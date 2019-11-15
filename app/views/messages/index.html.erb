@@ -27,7 +27,7 @@
 							    <%= form.number_field :post_id, {:class => "form-control d-none", :readonly => "true", :value => x.post_id } %>
 							  </p>
 
-								<%= button_tag type: 'submit' do %>
+								<%= button_tag type: 'submit', class: "btn-message" do %>
 									<img class="match-content" src=<%= User.where(id: x.user_id).first.display_picture %>>
 						    <% end %>
 
@@ -36,8 +36,8 @@
 						<!-- Button trigger modal -->
 						<div class="text-center mt-2">
 							<a class="match-job-content" data-toggle="modal" href="#qwerty<%= user.id %>">
-							 <strong><%= header %></strong>
-								<p class="lead text-center match-job-content mt-2"><%= post.job_title %></p>
+							 	<strong><%= header %></strong>
+								<p class="text-center mt-2"><%= post.job_title %></p>
 							</a>
 						</div>
 						<!-- Modal -->
@@ -83,7 +83,7 @@
 							    <%= form.number_field :post_id, {:class => "form-control d-none", :readonly => "true", :value => x.post_id } %>
 							  </p>
 
-								<%= button_tag type: 'submit' do %>
+								<%= button_tag type: 'submit', class: "btn-message" do %>
 									<img class="match-content" src=<%= User.where(id: x.user_id).first.display_picture %>>
 						    <% end %>
 
@@ -133,12 +133,26 @@
 			<div class="card match-message">
 			  <div class="row no-gutters">
 			    <div class="col-md-3 text-center">
-						<img class="match-content" src=<%= User.where(id: user.id).first.display_picture %>>
+						<img class="match-content" src=<%= user.display_picture %>>
 			    </div>
 			    <div class="col-md-8">
-		        <a href="/messages" class="stretched-link">
-		        	<h4 class="mt-3" style="color: #2B4162;"><%= post.job_title %></h4>
-		        </a>
+						<%= form_with scope: :message, url: messages_chat_path, local: true do |form| %>
+							<div>
+
+							  <p>
+							    <%= form.number_field :user_id, {:class => "form-control d-none", :readonly => "true", :value => user.id } %>
+							  </p>
+
+							  <p>
+							    <%= form.number_field :post_id, {:class => "form-control d-none", :readonly => "true", :value => post.id } %>
+							  </p>
+
+								<%= button_tag type: 'submit', class: "btn-message-title" do %>
+									<h4 class="mt-3" style="color: #2B4162;"><%= post.job_title %></h4>
+						    <% end %>
+
+							</div>
+						<% end %>
 		        <p class="lead"><%= User.where(id: user.id).first.name %></p>
 		        <p><%= x.content %></p>
 			    </div>
