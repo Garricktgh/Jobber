@@ -95,7 +95,7 @@
 
 
 .matched{
-	background-color: #3D9BF1;
+	background-color: rgba(52, 58, 64, 0.7);
 	width: 90%;
 	margin: 0 auto;
 	display: flex;
@@ -104,13 +104,14 @@
 	overflow-x: scroll;
 }
 
-::-webkit-scrollbar {
-	display: none;
+
+.match-holder{
+	margin: 1% 3%;
 }
 
 .match-content{
+	height: 150px;
 	width: 150px;
-	margin: 1% 3%;
 	border-radius: 50%;
 }
 
@@ -160,10 +161,13 @@
 		font-size: 12px !important;
 	}
 
+	.match-holder{
+		margin: 1% 5%;
+	}
 
 	.match-content{
 		width: 70px;
-		margin: 1% 5%;
+		height: 70px;
 		border-radius: 50%;
 	}
 
@@ -182,7 +186,6 @@
 	.match-job-content{
 		font-size: 10px;
 	}
-
 
 
 }

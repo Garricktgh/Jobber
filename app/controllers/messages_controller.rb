@@ -10,6 +10,8 @@ class MessagesController < ApplicationController
       @post = Post.where(company_id: current_company.id)
       @matches = Status.where(post_id: [@post.ids], post_approval: "accept", user_approval: "accept")
       @messages = Message.select('DISTINCT ON ("post_id") *').order(:post_id, created_at: :desc, id: :desc).where(post_id: [@post.ids])
+    else
+      redirect_to root_path
     end
 
   end
