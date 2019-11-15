@@ -29,10 +29,6 @@ class MessagesController < ApplicationController
         @message.sender = "user"
     end
 
-    #@message.user_id =
-    #@message.post_id =
-
-
     if(@message.save)
       redirect_to message_path
     else
@@ -46,17 +42,6 @@ class MessagesController < ApplicationController
    @post = Post.find_by(id: message_params[:post_id])
    @status = Status.where(user_id: message_params[:user_id], post_id: message_params[:post_id])
   end
-
-
-  # def show
-     #@message = Message.find_by(id: params[:id])
-     #@post = Post.find_by(id: params[:id])
-     #@user = User.find_by(id: params[:id])
-
-  #   # @user = message_params[:user_id]
-  #   # @post = message_params[:post_id]
-  #   # @messages = Message.where(user_id: message_params[:user_id], post_id: message_params[:post_id]).order(created_at: :desc)
-  # end
 
   def destroy
 
