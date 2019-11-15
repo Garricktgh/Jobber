@@ -1,4 +1,7 @@
 class SuggestionsController < ApplicationController
+
+  before_action :authenticate_company!
+
   def index
     @post = Post.find_by(id: params[:post_id])
     @statuses = Status.where(post_id: @post).where.not(post_approval: "pending").pluck(:user_id)

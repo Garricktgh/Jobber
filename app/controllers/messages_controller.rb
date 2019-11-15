@@ -10,6 +10,8 @@ class MessagesController < ApplicationController
       @post = Post.where(company_id: current_company.id)
       @matches = Status.where(post_id: [@post.ids], post_approval: "accept", user_approval: "accept")
       @messages = Message.select('DISTINCT ON ("post_id") *').order(:post_id, created_at: :desc, id: :desc).where(post_id: [@post.ids])
+    else
+      redirect_to root_path
     end
 
   end
@@ -47,14 +49,14 @@ class MessagesController < ApplicationController
   end
 
   def edit
-    @message = Message.find_by(user_id: message_params[:user_id]. post_id: message_params[:post_id])
+    #@message = Message.find_by(user_id: message_params[:user_id]. post_id: message_params[:post_id])
   end
 
-  def update
-    @message = Message.find_by(user_id: message_params[:user_id]. post_id: message_params[:post_id])
-    @message.update(message_params)
-    redirect_to root_path
-  end
+  # def update
+  #   @message = Message.find_by(user_id: message_params[:user_id]. post_id: message_params[:post_id])
+  #   @message.update(message_params)
+  #   redirect_to root_path
+  # end
 
   def destroy
 
