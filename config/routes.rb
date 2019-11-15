@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :suggestions, only: [:index]
   end
   resources :statuses
+  get '/messages/chat' => 'messages#chat'
   resources :messages
+
 end
