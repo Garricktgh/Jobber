@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 include FFaker
 
+# makes sure all entry will be successfully created before creating
 ActiveRecord::Base.transaction do
   password = "123123"
   User.create!(email: "user@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k")
