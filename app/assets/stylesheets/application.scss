@@ -57,8 +57,6 @@
 	 	background-color: #FFF;
 	 	border-color: #2B4162;
 	 	color: #2B4162;
-	 	font-size: 20px;
-	 	padding: 0.5em 2em;
  }
 
  .btn-submit {
@@ -308,7 +306,7 @@
 }
 
 .modal-content{
-	background-color: rgba(255,255,255,0.8)
+	background-color: rgba(255,255,255,0.93)
 }
 
  @media only screen and (max-width: 700px) {
@@ -319,6 +317,11 @@
 
 	.show-page{
 		width: 90% !important;
+	}
+
+	.btn-landing{
+	 	font-size: 12px;
+	 	margin: 3% auto;
 	}
 
  	.display-pic{
