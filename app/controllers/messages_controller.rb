@@ -49,6 +49,7 @@ class MessagesController < ApplicationController
   end
 
   def edit
+
     #@message = Message.find_by(user_id: message_params[:user_id]. post_id: message_params[:post_id])
   end
 
@@ -57,6 +58,8 @@ class MessagesController < ApplicationController
   #   @message.update(message_params)
   #   redirect_to root_path
   # end
+
+
 
   def destroy
 
