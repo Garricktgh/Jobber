@@ -31,6 +31,7 @@ class MessagesController < ApplicationController
   def show
     @message = Message.find_by(id: params[:id])
     @post = Post.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   def edit

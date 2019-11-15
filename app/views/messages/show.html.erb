@@ -2,13 +2,79 @@
 <!--Message header-->
 	<div class="row msg-header">
 		<div class="col-2 msg-logo-details">
-			<%= image_tag 'company-40-282989.png', :class => "msg-logo" %>
+			<% if company_signed_in? %>
+				<img class="msg-logo" src=<%= @user.display_picture %>>
+
+			<% elsif user_signed_in? %>
+				<img class="msg-logo" src=<%= Company.where(id: @post.company_id).first.display_picture %>>
+			<% end %>
 		</div>
 
 		<div class="col-7 msg-recipient-details">
 			<ul>
-				<li><%= link_to @message.post.job_title, post_path %></li>
-				<li>Company Name</li>
+				<% if company_signed_in? %>
+						<!-- Button trigger modal -->
+						<li><a data-toggle="modal" href="#qwerty<%= @message.user_id %>"><%= @message.user.name %></a></li>
+
+						<!-- Modal -->
+						<div class="modal fade" id="qwerty<%= @message.user_id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+						  <div class="modal-dialog modal-dialog-centered" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title text-dark" id="exampleModalLongTitle"><%= @message.user.name %></h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body text-dark">
+						      	<p><strong>Employment Type: </strong><%= @message.user.employment_type %></p>
+						      	<p><strong>Industry: </strong><%= @message.user.industry %></p>
+						      	<p><strong>Work Experience: </strong><%= @message.user.work_experience %></p>
+						      	<p><strong>Education Level: </strong><%= @message.user.education_level %></p>
+						      	<p><strong>Expected Salary: </strong><%= @message.user.expected_salary %></p>
+						      	<p><strong>Self Description: </strong></p>
+						      	<p><%= @message.user.description %></p>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+				<% elsif user_signed_in? %>
+					<!-- Button trigger modal -->
+						<li><a data-toggle="modal" href="#qwerty<%= @post.id %>"><%= @message.post.job_title %></a></li>
+							<!-- Modal -->
+						<div class="modal fade" id="qwerty<%= @post.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+						  <div class="modal-dialog modal-dialog-centered" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title text-dark" id="exampleModalLongTitle"><%= @message.post.job_title %></h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body text-dark">
+						      	<p><strong>Employment Type: </strong><%= @message.post.employment_type %></p>
+						      	<p><strong>Industry: </strong><%= @message.post.industry %></p>
+						      	<p><strong>Work Experience: </strong><%= @message.post.work_experience %></p>
+						      	<p><strong>Education Level: </strong><%= @message.post.education_level %></p>
+						      	<p><strong>Expected Salary: </strong><%= @message.post.expected_salary %></p>
+						      	<p><strong>Job Description: </strong></p>
+						      	<p><%= @message.post.job_description %></p>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+
+				<% end %>
+
+				<% if company_signed_in? %>
+					<li><%= @message.post.job_title %></li>
+
+
+				<% elsif user_signed_in? %>
+					<li><%= Company.where(id: @post.company_id).first.name %></li>
+
+				<% end %>
+
 			</ul>
 		</div>
 		<div class="col-3 msg-matched-date">
@@ -20,16 +86,16 @@
 	</div>
 	<!---Message portion--->
 	<div class = "msg-main">
-			<div class="row msg-content" id ="msg-sender"><%= @message.content %></div>
-			<div class="row msg-content" id="msg-recipient">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.</div>
-			<div class="row msg-content" id ="msg-sender">Ok lor, hahahaha</div>
-			<div class="row msg-content" id="msg-recipient">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.</div>
-			<div class="row msg-content" id ="msg-sender">Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. </div>
+			<div class="row msg-sender"><%= @message.content %></div>
+			<div class="row msg-recipient">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.</div>
+			<div class="row msg-sender">Ok lor, hahahaha</div>
+			<div class="row msg-recipient">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.</div>
+			<div class="row msg-sender">Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. </div>
  </div>
 
- <div class="row msg-text-field align-self-end">
+ <div class="row msg-text-field">
 		<%= form_with scope: :message, local: true do |form| %>
-			<%= form.text_area :content, {:class => "form-control msg-text-area", :minlength => 1, :rows => 3, :cols => 200, :required => "true", :placeholder => "Write a message..."} %>
+			<%= form.text_area :content, {:class => "form-control msg-text-area", :minlength => 1, :rows => 3, :cols => 200, :required => "true", :value => "Write a message..."} %>
 		<%= form.submit "Send", class: "btn btn-outline-primary msg-text-button" %>
 		<% end %>
 	</div>
