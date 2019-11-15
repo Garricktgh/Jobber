@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     resources :suggestions, only: [:index]
   end
   resources :statuses
-  get '/messages/chat' => 'messages#chat'
+  post '/messages/chat' => 'messages#chat'
+  get '/messages/refresh' => 'messages#refresh'
   resources :messages
 
 end
