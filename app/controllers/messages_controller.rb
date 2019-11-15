@@ -48,31 +48,6 @@ class MessagesController < ApplicationController
   end
 
 
-  # def show
-     @message = Message.find_by(id: params[:id])
-     @post = Post.find_by(id: params[:id])
-     @user = User.find_by(id: params[:id])
-
-  #   # @user = message_params[:user_id]
-  #   # @post = message_params[:post_id]
-  #   # @messages = Message.where(user_id: message_params[:user_id], post_id: message_params[:post_id]).order(created_at: :desc)
-  # end
-
-
-
-  #def edit
-
-    #@message = Message.find_by(user_id: message_params[:user_id]. post_id: message_params[:post_id])
-  #end
-
-  # def update
-  #   @message = Message.find_by(user_id: message_params[:user_id]. post_id: message_params[:post_id])
-  #   @message.update(message_params)
-  #   redirect_to root_path
-  # end
-
-
-
   def destroy
 
   end
