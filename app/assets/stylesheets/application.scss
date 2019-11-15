@@ -15,6 +15,7 @@
  */
  body {
  	font-family: 'Poppins', sans-serif;
+ 	background-color: #F5F0F6;
  }
 
 	h1{
@@ -22,7 +23,7 @@
 	}
 
  .navbar {
- 	background-color: #3D9BF1;
+ 	background-color: #2B4162;
  }
 
  .navbar-brand img {
@@ -31,25 +32,59 @@
  }
 
  .btn-nav {
- 	border-color: #006DD2;
+ 	border-color: #778DA9;
  	color: #FFFFFF;
  	font-size: 14px;
  }
 
  .btn-nav:hover, .btn-submit:hover {
-	 	background-color: #006DD2;
+	 	background-color: #778DA9;
 	 	color: #FFFFFF;
  }
 
  .smol{
- 	font-size: 15px;
+ 		font-size: 15px;
+ }
+
+ .btn-landing{
+ 	background-color: #2B4162;
+	 	color: #FFFFFF;
+	 	font-size: 20px;
+	 	padding: 0.5em 2em;
+ }
+
+  .btn-landing:hover{
+	 	background-color: #FFF;
+	 	border-color: #2B4162;
+	 	color: #2B4162;
+	 	font-size: 20px;
+	 	padding: 0.5em 2em;
  }
 
  .btn-submit {
- 	background-color: #3D9BF1;
+ 	background-color: #2B4162;
  	color: #FFFFFF;
- 	font-size: 14px;
- 	padding: 0.5em 2em;
+ 	font-size: 16px;
+ }
+
+ .btn-submit:hover{
+ 	border-color: #2B4162;
+ 	background-color: #FFFFFF;
+ 	color: #2B4162;
+ 	font-size: 16px;
+ }
+
+ .btn-submit-outline {
+ 	border-color: #2B4162;
+ 	background-color: #FFFFFF;
+ 	color: #2B4162;
+ 	font-size: 16px;
+ }
+
+ .btn-submit-outline:hover {
+ 	background-color: #2B4162;
+ 	color: #FFFFFF;
+ 	font-size: 16px;
  }
 
 .landing-page {
@@ -86,8 +121,29 @@
 }
 
 .tinder{
-	background-color: #E7E5E5;
+	background-color: white;
+	border: 1px solid #adadad;
+	border-radius: 15px;
+	color: #2B4162;
 }
+
+.tinder-params{
+ 	background-color: #385F71;
+ 	color: #FFFFFF;
+ 	font-size: 16px;
+}
+
+.tinder-params:hover{
+	border-color: #385F71;
+	background-color: white;
+	color: #385F71;
+	font-size: 16px;
+}
+
+.img-thumbnail{
+	border: 1px solid #adadad;
+}
+
 
 .tinder-btn{
  	border-radius: 50%;
@@ -187,8 +243,15 @@
 	height: 10%;
 }
 
+.table-head-dark{
+	background-color: #0D1B2A;
+	color: #F5F0F6;
+}
+
+
 .matched{
-	background-color: rgba(52, 58, 64, 0.7);
+	background-color: #778DA9;
+	border-radius: 15px;
 	width: 90%;
 	margin: 0 auto;
 	display: flex;
@@ -210,13 +273,19 @@
 
 .match-message{
 	background-color: rgba(229, 229, 229, 0.5);
+	border-radius: 15px;
 	width: 90%;
 	margin: 0 auto;
 	padding: 2% 0 2%;
 }
 
 .match-job-content{
+	color: #F5F0F6;
 	font-size: 16px;
+}
+
+.modal-content{
+	background-color: rgba(255,255,255,0.8)
 }
 
  @media only screen and (max-width: 700px) {

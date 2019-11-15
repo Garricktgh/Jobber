@@ -10,27 +10,27 @@ include FFaker
 # makes sure all entry will be successfully created before creating
 ActiveRecord::Base.transaction do
   password = "123123"
-  User.create!(email: "user@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k")
+  User.create!(email: "user@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k", description: FFaker::AWS.product_description)
 
-  User.create!(email: "user1@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Contract", industry: "Finance", work_experience: "4-5 years", education_level: "Master", expected_salary: "$100-1k")
+  User.create!(email: "user1@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Contract", industry: "Finance", work_experience: "4-5 years", education_level: "Master", expected_salary: "$100-1k", description: FFaker::AWS.product_description)
 
-  User.create!(email: "user2@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Part-time", industry: "Technology", work_experience: "1-3 years", education_level: "Master", expected_salary: "$1k-2k")
+  User.create!(email: "user2@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Part-time", industry: "Technology", work_experience: "1-3 years", education_level: "Master", expected_salary: "$1k-2k", description: FFaker::AWS.product_description)
 
-  User.create!(email: "user3@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "HR", work_experience: "1-3 years", education_level: "Bachelor", expected_salary: "$2k-3k")
+  User.create!(email: "user3@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "HR", work_experience: "1-3 years", education_level: "Bachelor", expected_salary: "$2k-3k", description: FFaker::AWS.product_description)
 
-  User.create!(email: "user4@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "4-5", education_level: "Bachelor", expected_salary: "$1k-2k")
+  User.create!(email: "user4@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "4-5", education_level: "Bachelor", expected_salary: "$1k-2k", description: FFaker::AWS.product_description)
 
-  User.create!(email: "user5@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k")
+  User.create!(email: "user5@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k", description: FFaker::AWS.product_description)
 
-  User.create!(email: "user6@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k")
+  User.create!(email: "user6@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k", description: FFaker::AWS.product_description)
 
-  User.create!(email: "user7@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k")
+  User.create!(email: "user7@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k", description: FFaker::AWS.product_description)
 
-  User.create!(email: "user8@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k")
+  User.create!(email: "user8@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k", description: FFaker::AWS.product_description)
   
-  User.create!(email: "user9@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k")
+  User.create!(email: "user9@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k", description: FFaker::AWS.product_description)
   
-  User.create!(email: "user10@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k")
+  User.create!(email: "user10@email.com", password: password, name: FFaker::Name.first_name, display_picture: FFaker::Image.url, employment_type: "Full-time", industry: "Finance", work_experience: "0 years", education_level: "Bachelor", expected_salary: "$100-1k", description: FFaker::AWS.product_description)
 
   Company.create!(email: "company@email.com", password: password, display_picture: FFaker::Image.url, name: FFaker::InternetSE.company_name_single_word )
 

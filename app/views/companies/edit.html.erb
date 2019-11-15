@@ -15,7 +15,7 @@
 		    <%= form.label :display_picture %><br>
 				<div id="accordion">
 				  <div class="card">
-				    <div class="btn btn-outline-primary" id="headingOne">
+				    <div class="btn btn-submit-outline" id="headingOne">
 				      <p class="mb-0">
 				        <a class="nav-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 				          Image URL:
@@ -29,7 +29,7 @@
 				    </div>
 				  </div>
 				  <div class="card">
-				    <div class="btn btn-outline-primary" id="headingTwo">
+				    <div class="btn btn-submit-outline" id="headingTwo">
 				      <p class="mb-0">
 				        <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 				          File Upload:
@@ -46,7 +46,7 @@
 		  </p>
 
 		  <%= link_to 'Back',company_path, {:class => "btn btn-outline-secondary"} %>
-		  <%= form.submit "Save", class: "btn btn-primary" %>
+		  <%= form.submit "Save", class: "btn btn-submit" %>
 
 		</div>
 	<% end %>
