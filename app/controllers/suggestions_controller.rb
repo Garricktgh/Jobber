@@ -1,8 +1,11 @@
 class SuggestionsController < ApplicationController
+
+  before_action :authenticate_company!
+
   def index
     @post = Post.find_by(id: params[:post_id])
     @statuses = Status.where(post_id: @post).where.not(post_approval: "pending").pluck(:user_id)
-    @users = User.where(work_experience: @post.work_experience, industry: @post.industry, education_level: @post.education_level, employment_type: @post.employment_type, expected_salary: @post.expected_salary).where.not(id: @statuses)
+    @users = User.where(industry: @post.industry, employment_type: @post.employment_type).where.not(id: @statuses)
     @user = @users.first
   end
 
