@@ -91,15 +91,14 @@
 			<% if company_signed_in? %>
 				<% sender = x.where(sender: "post") %>
 				<% receiver = x.where(sender: "user") %>
-				<div class="row msg-sender"><%= @messages.content %></div>
-				<div class="row msg-recipient"><%= @messages.content %></div>
 
 				<% elsif user_signed_in? %>
 					<% sender = x.where(sender: "user") %>
 					<% receiver = x.where(sender: "post") %>
-					<div class="row msg-sender"><%= @messages.content %></div>
-					<div class="row msg-recipient"><%= @messages.content %></div>
 
+				<div class="row msg-sender"><%= sender.content %></div>
+				<div class="row msg-recipient"><%= receiver.content %></div>
+			<% end %>
 		<% end %>
 
 			<!--<div class="row msg-sender"><%= @messages.content %></div>
