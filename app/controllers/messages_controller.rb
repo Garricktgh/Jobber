@@ -20,6 +20,16 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    if (company_signed_in?)
+      @message.sender = "post"
+
+      elsif user_signed_in?
+        @message.sender = "user"
+    end
+
+    @message.user_id =
+    @message.post_id =
+
 
     if(@message.save)
       redirect_to @message

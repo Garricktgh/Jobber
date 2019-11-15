@@ -94,7 +94,7 @@
  </div>
 
  <div class="row msg-text-field">
-		<%= form_with scope: :message, local: true do |form| %>
+		<%= form_with scope: :message, url: message_path, local: true do |form| %>
 			<%= form.text_area :content, {:class => "form-control msg-text-area", :minlength => 1, :rows => 3, :cols => 200, :required => "true", :value => "Write a message..."} %>
 		<%= form.submit "Send", class: "btn btn-outline-primary msg-text-button" %>
 		<% end %>
