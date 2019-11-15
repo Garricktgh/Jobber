@@ -9,7 +9,7 @@
 
 
 		<div class="card show-page mt-4 mb-3" style="width: 50%; margin: 0 auto;">
-		  <img class="card-img-top mt-4" style="width: 50%; margin: 0 auto;" alt="display picture" src=<%= @user.display_picture %> />
+		  <img class="card-img-top img-thumbnail mt-4" style="width: 50%; margin: 0 auto;" alt="display picture" src=<%= @user.display_picture %> />
 		  <div class="card-body">
 		     <h3 class="card-title ml-3 mb-5 mt-4"><%= header %></h3>
 				 <ul class="list-group list-group-flush">
@@ -27,7 +27,7 @@
 
 	<div class="text-center mb-5">
 
-		<%= link_to 'Edit', edit_user_path(@user), {:class => "btn btn-outline-primary"} %>
+		<%= link_to 'Edit', edit_user_path(@user), {:class => "btn btn-submit	"} %>
 
 	</div>
 
