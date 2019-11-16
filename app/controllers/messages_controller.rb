@@ -23,16 +23,16 @@ class MessagesController < ApplicationController
   end
 
   def refresh
-    @messages = Message.where(user_id: message_params[:user_id], post_id: message_params[:post_id]).order(created_at: :asc)
-    @user = User.find_by(id: message_params[:user_id])
-    @post = Post.find_by(id: message_params[:post_id])
-    @status = Status.where(user_id: message_params[:user_id], post_id: message_params[:post_id])
+    @messages = Message.where(user_id: params[:user_id], post_id: params[:post_id]).order(created_at: :asc)
+    @user = User.find_by(id: params[:user_id])
+    @post = Post.find_by(id: params[:post_id])
+    @status = Status.where(user_id: params[:user_id], post_id: params[:post_id])
   end
 
   def create
     @message = Message.new(message_params)
     @message.save
-    redirect_to messages_refresh_path(@message, message_params)
+    redirect_to messages_refresh_path(message_params)
   end
   
   def destroy
