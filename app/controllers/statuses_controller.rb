@@ -13,11 +13,9 @@ class StatusesController < ApplicationController
     @status.save
   end
 
-
   private
   def status_params
     params.require(:status).permit(:post_id, :user_id, :post_approval, :user_approval)
   end
-
 
 end
