@@ -12,10 +12,13 @@
 			<% header = @company.email %>
 		<% end %>
 
+
+		<% company = Company.where(id: @post.company_id).first %>
+
 		<div class="container tinder mt-5 mb-5" style="width: 80%">
 				<div class="row" style="width: 80%; margin: 0 auto">
 					<div class="mt-5 tinder-content" style="width: 30%; margin: 0 auto;">
-				  	<img class="img-thumbnail" src="https://www.pngfind.com/pngs/m/665-6659827_enterprise-comments-default-company-logo-png-transparent-png.png" class="card-img-top">
+				  	<img class="img-thumbnail" src="<%= company.display_picture %>" class="card-img-top">
 				  </div>
 				  <div class="mt-5 tinder-content" style="width: 60%; margin: 0 auto;">
 				    <h2 class="text-center"><%= @post.job_title %></h2>
