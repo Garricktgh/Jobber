@@ -116,7 +116,7 @@
  	object-fit: cover;
 }
 
-.card-title {
+#card-title {
 	font-weight: 600;
 	margin-left: 5%;
 	margin-top: 20%;
@@ -325,8 +325,18 @@
 	}
 
 	.btn-landing{
-	 	font-size: 12px;
+	 	font-size: 15px;
 	 	margin: 3% auto;
+	}
+
+	#card-title{
+		margin-top: 20vh;
+		margin-right: 2%;
+		font-size: 40px !important;
+	}
+
+	.card-text {
+		font-size: 20px;
 	}
 
  	.display-pic{
