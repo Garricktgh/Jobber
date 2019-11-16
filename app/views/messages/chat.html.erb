@@ -87,24 +87,8 @@
 	</div>
 	<!---Message portion--->
 	<div class = "msg-main">
-		<% @messages.each do |x| %>
-			<% if company_signed_in? %>
-        <% if x.sender == "post"%>
-					<div class="row msg-sender"><%= x.content %></div>
-        <% else %>
-          <div class="row msg-recipient"><%= x.content %></div>
-        <% end %>
-			<% elsif user_signed_in? %>
-        <% if x.sender == "user"%>
-					<div class="row msg-sender"><%= x.content %></div>
-        <% else %>
-          <div class="row msg-recipient"><%= x.content %></div>
-        <% end %>
-      <% end %>
-
-		<% end %>
-
- </div>
+    <%= render 'messages' %>
+  </div>
 
  <div class="row msg-text-field">
 		<%= form_with scope: :message, url: messages_path, local: true do |form| %>
