@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :statuses
   post '/messages/chat' => 'messages#chat'
   get '/messages/refresh' => 'messages#refresh'
-  resources :messages
+  resources :messages, only: [:index, :create, :destroy]
 
 end
