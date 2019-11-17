@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
     @post = Post.find_by(id: params[:post_id])
     @status = Status.where(user_id: params[:user_id], post_id: params[:post_id])
   end
-
+  
   def create
     @message = Message.new(message_params)
     @message.save

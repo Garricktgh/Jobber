@@ -92,7 +92,7 @@
 
  <div class="row msg-text-field">
 		<%= form_with scope: :message, url: messages_path, local: true do |form| %>
-			<%= form.text_area :content, {:class => "form-control msg-text-area", :minlength => 1, :rows => 3, :cols => 200, :required => "true", :placeholder => "Write a message..."} %>
+			<%= form.text_area :content, {:class => "form-control msg-text-area message-field", :minlength => 1, :rows => 3, :cols => 200, :required => "true", :placeholder => "Write a message..."} %>
       <%= form.number_field :user_id, {:class => "form-control d-none", :readonly => "true", :value => @user.id } %>
       <%= form.number_field :post_id, {:class => "form-control d-none", :readonly => "true", :value => @post.id } %>
       <% if company_signed_in? %>
@@ -104,3 +104,12 @@
 		<% end %>
 	</div>
 </div>
+
+<script language="javascript" type="text/javascript">
+  let messageBox = document.querySelector('.message-field')
+  setInterval(() => {
+    if (messageBox.value === "") {
+      setTimeout("location.reload();", 100);
+    }
+  }, 4000)
+</script>
