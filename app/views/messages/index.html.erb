@@ -5,7 +5,7 @@
 	</div>
 	<h4 class="text-center" style="color: #2B4162">Matches</h4>
 
-	<div class="card matched text-white" >
+	<div class="card matched" >
 		<% if company_signed_in? %>
 
 			  <% @matches.each do |x| %>
@@ -84,7 +84,7 @@
 							  </p>
 
 								<%= button_tag type: 'submit', class: "btn-message" do %>
-									<img class="match-content" src=<%= User.where(id: x.user_id).first.display_picture %>>
+									<img class="match-content" src=<%= Company.where(id: post.company_id).first.display_picture %>>
 						    <% end %>
 
 							</div>
