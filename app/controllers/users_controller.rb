@@ -11,20 +11,26 @@ class UsersController < ApplicationController
     end
   end
 
-  def new
-
-  end
-
-  def create
-
-  end
-
   def show
     @user = User.find_by(id: params[:id])
+    if (@user == nil)
+      redirect_to root_path
+    else
+      unless (@user.id === current_user.id)
+        redirect_to root_path
+      end
+    end
   end
 
   def edit
     @user = User.find_by(id: params[:id])
+    if (@user == nil)
+      redirect_to root_path
+    else
+      unless (@user.id === current_user.id)
+        redirect_to root_path
+      end
+    end
   end
 
   def update
