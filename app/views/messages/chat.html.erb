@@ -2,12 +2,19 @@
 <!--Message header-->
 	<div class="row msg-header">
 		<div class="col-2 msg-logo-details">
-			<% if company_signed_in? %>
-				<img class="msg-logo" src=<%= @user.display_picture %>>
+			<div class="row">
+				<div class="col-4 msg-arrow">
+					<a href="/messages"><i class='bx bx-arrow-back'></i></a>
+				</div>
+				<div class="col-8 msg-logo-container">
+					<% if company_signed_in? %>
+						<img class="msg-logo" src=<%= @user.display_picture %>>
 
-			<% elsif user_signed_in? %>
-				<img class="msg-logo" src=<%= Company.where(id: @post.company_id).first.display_picture %>>
-			<% end %>
+						<% elsif user_signed_in? %>
+							<img class="msg-logo" src=<%= Company.where(id: @post.company_id).first.display_picture %>>
+					<% end %>
+				</div>
+			</div>
 		</div>
 
 		<div class="col-7 msg-recipient-details">
@@ -80,7 +87,6 @@
 		<div class="col-3 msg-matched-date">
 			<ul>
 				<li>Matched On</li>
-				<!--<li>Date-of-match</li>-->
 				  <li><%= @status[0].updated_at.day %>/<%= @status[0].updated_at.month %>/<%= @status[0].updated_at.year %></li>
 			</ul>
 		</div>
@@ -100,7 +106,7 @@
       <% elsif user_signed_in? %>
         <%= form.text_field :sender, {:class => "form-control d-none", :readonly => "true", :value => "user"} %>
       <% end %>
-		  <%= form.submit "Send", class: "btn btn-outline-primary msg-text-button" %>
+		  <%= form.submit "Send", class: "btn msg-text-button" %>
 		<% end %>
 	</div>
 </div>
