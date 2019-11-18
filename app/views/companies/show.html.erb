@@ -34,8 +34,9 @@
 		      <th scope="col">Job Title</th>
 		      <th class="byebye" scope="col">Job Description</th>
 		      <th class="byebye" scope="col">Date Posted</th>
-		      <th scope="col">Edit</th>
-		      <th scope="col">Delete</th>
+		      <th></th>
+		      <th></th>
+		      <th></th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -45,8 +46,9 @@
 			      <td><%= link_to x.job_title, post_path(x) %></td>
 			      <td class="byebye"><%= x.job_description %></td>
 			      <td class="byebye"><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %></td>
-			      <td><%= link_to 'Edit', edit_post_path(x), {:class => "btn btn-sm btn-warning"} %></td>
-			      <td><%= link_to 'Delete', post_path(x), :class => "btn btn-sm btn-secondary",
+			      <td><%= link_to 'Discover', posts_path(x), {:class => "btn table-btn btn-sm btn-submit"} %></td>
+			      <td><%= link_to 'Edit', edit_post_path(x), {:class => "btn table-btn btn-sm btn-warning"} %></td>
+			      <td><%= link_to 'Delete', post_path(x), :class => "btn table-btn btn-sm btn-secondary",
 		        method: :delete,
 		        data: { confirm: 'Are you sure?' } %></td>
 			    </tr>
