@@ -2,25 +2,38 @@ class CompaniesController < ApplicationController
 
   before_action :authenticate_company!
 
-  def index
-
-  end
-
-  def new
-
-  end
-
-  def create
-
-  end
 
   def show
     @company = Company.find_by(id: params[:id])
-    @post = @company.post
+
+    if (@company === nil)
+      redirect_to root_path
+    else
+
+      @post = @company.post
+
+      unless (@company.id === current_company.id)
+        redirect_to root_path
+      end
+
+    end
+
   end
 
   def edit
     @company = Company.find_by(id: params[:id])
+
+    if (@company === nil)
+      redirect_to root_path
+    else
+
+
+      unless (@company.id === current_company.id)
+        redirect_to root_path
+      end
+
+    end
+
   end
 
   def update
