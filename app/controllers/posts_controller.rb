@@ -3,6 +3,24 @@ class PostsController < ApplicationController
   before_action :authenticate_company!
 
   def index
+    @post = Post.find_by(id: params[:id])
+
+    # ================================================================
+    # if there is no such post, redirect them
+    # if they are trying to access a different company's post discover page, redirect them
+    if (@post === nil)
+      redirect_to root_path
+    else
+
+      unless (@post.company_id === current_company.id)
+        redirect_to root_path
+      end
+    # ================================================================
+    @statuses = Status.where(post_id: @post).where.not(post_approval: "pending").pluck(:user_id)
+    @users = User.where(industry: @post.industry, employment_type: @post.employment_type).where.not(id: @statuses)
+    @user = @users.first
+
+    end
 
   end
 
@@ -25,10 +43,40 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @company = current_company
+
+    # ================================================================
+    # if there is no such post, redirect them
+    # if they are trying to access a different company's post discover page, redirect them
+    if (@post === nil)
+      redirect_to root_path
+    else
+
+      unless (@post.company_id === current_company.id)
+        redirect_to root_path
+      end
+
+    end
+    # ================================================================
+
   end
 
   def edit
     @post = Post.find_by(id: params[:id])
+
+    # ================================================================
+    # if there is no such post, redirect them
+    # if they are trying to access a different company's post discover page, redirect them
+    if (@post === nil)
+      redirect_to root_path
+    else
+
+      unless (@post.company_id === current_company.id)
+        redirect_to root_path
+      end
+
+    end
+    # ================================================================
+
   end
 
   def update
