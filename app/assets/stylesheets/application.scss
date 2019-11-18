@@ -401,6 +401,18 @@
 	background-color: rgba(255,255,255,0.9)
 }
 
+.bxs-trash{
+	font-size: 25px;
+	color: #b2b2b2 !important;
+}
+
+.bxs-trash:hover{
+	font-size: 25px;
+	color: black !important;
+	background: none;
+	text-decoration: none;
+}
+
  @media only screen and (max-width: 700px) {
 
 	.navbar-brand img {
