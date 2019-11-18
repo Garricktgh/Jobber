@@ -333,6 +333,12 @@ h1{
 
  @media only screen and (max-width: 700px) {
 
+	.navbar-brand img {
+		width: 50%;
+		margin-left: 0;
+	}
+
+
 	h1{
 		font-size: 30px !important;
 	}
@@ -418,7 +424,7 @@ h1{
 	 }
 
 	.table, .table-btn{
-		font-size: 10px;
+		font-size: 10px !important;
 	}
 
 }
