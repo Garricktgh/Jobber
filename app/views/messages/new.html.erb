@@ -1,9 +1,9 @@
 <div class="container msg-box">
 <!--Message header-->
 	<div class="row msg-header">
-		<div class="col-2 msg-logo-details">
+		<div class="col-3 msg-logo-details">
 			<div class="row">
-				<div class="col-4 msg-arrow">
+				<div class="col-4 mt-2 msg-arrow">
 					<a href="/messages"><i class='bx bx-arrow-back'></i></a>
 				</div>
 				<div class="col-8 msg-logo-container">
@@ -17,7 +17,7 @@
 			</div>
 		</div>
 
-		<div class="col-7 msg-recipient-details">
+		<div class="col-5 msg-recipient-details">
 			<ul>
 				<% if company_signed_in? %>
           <!-- Button trigger modal -->
@@ -80,7 +80,7 @@
 			</ul>
 		</div>
 
-		<div class="col-3 msg-matched-date">
+		<div class="col-4 msg-matched-date">
 			<ul>
 				<% time_m = @status.created_at.localtime(utc_offset = nil) %>
 				<li>Matched On</li>
