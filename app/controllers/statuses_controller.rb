@@ -13,12 +13,6 @@ class StatusesController < ApplicationController
     @status.save
   end
 
-  def destroy
-    @status = Status.find(params[:id])
-    @status.destroy
-    redirect_back(fallback_location: root_path)
-  end
-
   private
   def status_params
     params.require(:status).permit(:post_id, :user_id, :post_approval, :user_approval)

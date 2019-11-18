@@ -15,7 +15,6 @@
 				  <% @matches.each do |x| %>
 				  	<% post = Post.where(id: x.post_id).first %>
 						<% user = User.where(id: x.user_id).first %>
-            <% status = Status.where(user_id: x.user_id, post_id: x.post_id).first%>
 						<% header = user.name %>
 						<% if header == nil %>
 							<% header = @user.email %>
@@ -36,7 +35,7 @@
 							  <div class="modal-dialog modal-dialog-centered" role="document">
 							    <div class="modal-content">
 							      <div class="modal-header">
-							        <h5 class="modal-title text-dark" id="exampleModalLongTitle"><%= header %> <%= link_to "", status_path(status), method: :delete, data: { confirm: 'Are you sure?' }, :class => "bx bxs-trash btn-outline-dark" %></h5>
+							        <h5 class="modal-title text-dark" id="exampleModalLongTitle"><%= header %></h5>
 							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							          <span aria-hidden="true">&times;</span>
 							        </button>
@@ -61,7 +60,6 @@
 						<div class="match-holder text-center">
 					  	<% post = Post.where(id: x.post_id).first %>
 							<% user = User.where(id: x.user_id).first %>
-              <% status = Status.where(user_id: x.user_id, post_id: x.post_id).first%>
 							<a href="messages/new/<%= post.id %>/<%= user.id %>">
 								<img class="match-content" src=<%= Company.where(id: post.company_id).first.display_picture %>>
 							</a>
@@ -76,7 +74,7 @@
 							  <div class="modal-dialog modal-dialog-centered" role="document">
 							    <div class="modal-content">
 							      <div class="modal-header">
-							        <h5 class="modal-title text-dark" id="exampleModalLongTitle"><%= post.job_title %> <%= link_to "", status_path(status), method: :delete, data: { confirm: 'Are you sure?' }, :class => "bx bxs-trash btn-outline-dark" %></h5>
+							        <h5 class="modal-title text-dark" id="exampleModalLongTitle"><%= post.job_title %></h5>
 							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							          <span aria-hidden="true">&times;</span>
 							        </button>
