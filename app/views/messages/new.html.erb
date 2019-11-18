@@ -91,11 +91,11 @@
 					<% if x.sender === "post" %>
 						<% sender = x.content %>
 						<% time_s = x.created_at.localtime(utc_offset = nil) %>
-						<div class="row msg-sender"><small style="align-self: flex-end;"><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_s.strftime("%I:%M %p") %>)</small><%= sender %></div>
+						<div class="row msg-sender content"><small style="align-self: flex-end;"><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_s.strftime("%I:%M %p") %>)</small><%= sender %></div>
 					<% else %>
 						<% receiver = x.content %>
 						<% time_r = x.created_at.localtime(utc_offset = nil) %>
-						<div class="row msg-recipient"><small><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_r.strftime("%I:%M %p") %>)</small><%= receiver %></div>
+						<div class="row msg-recipient content"><small><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_r.strftime("%I:%M %p") %>)</small><%= receiver %></div>
 					<% end %>
 				<% end %>
 
@@ -104,25 +104,41 @@
 					<% if x.sender === "user" %>
 						<% sender = x.content %>
 						<% time_s = x.created_at.localtime(utc_offset = nil) %>
-						<div class="row msg-sender"><small style="align-self: flex-end;"><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_s.strftime("%I:%M %p") %>)</small><%= sender %></div>
+						<div class="row msg-sender content"><small style="align-self: flex-end;"><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_s.strftime("%I:%M %p") %>)</small><%= sender %></div>
 					<% else %>
 						<% receiver = x.content %>
 						<% time_r = x.created_at.localtime(utc_offset = nil) %>
-						<div class="row msg-recipient"><small><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_r.strftime("%I:%M %p") %>)</small><%= receiver %></div>
+						<div class="row msg-recipient content"><small><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_r.strftime("%I:%M %p") %>)</small><%= receiver %></div>
 					<% end %>
 				<% end %>
 
 			<% end %>
 
+		<script language="javascript" type="text/javascript">
+		  let lastChatBox = document.querySelectorAll('.content');
+		  lastChatBox = lastChatBox[lastChatBox.length-1];
+		  lastChatBox.scrollIntoView();
+		</script>
 
  </div>
 
- <div class="row msg-text-field">
+	<div class="row msg-text-field">
 		<%= form_with scope: :message, url: messages_path, local: true do |form| %>
 	    <%= form.number_field :user_id, {:class => "form-control d-none", :readonly => "true", :value => @user.id } %>
 	    <%= form.number_field :post_id, {:class => "form-control d-none", :readonly => "true", :value => @post.id } %>
 			<%= form.text_area :content, {:class => "form-control msg-text-area", :minlength => 1, :rows => 3, :cols => 200, :required => "true", :placeholder => "Write a message..."} %>
 		<%= form.submit "Send", class: "btn msg-text-button" %>
 		<% end %>
+
+		<script language="javascript" type="text/javascript">
+		  let messageBox = document.querySelector('.msg-text-area')
+		  setInterval(() => {
+		    if (messageBox.value === "") {
+		      setTimeout("location.reload();", 100);
+		    }
+		  }, 4000)
+		</script>
+
+
 	</div>
 </div>
