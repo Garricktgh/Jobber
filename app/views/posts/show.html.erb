@@ -17,7 +17,7 @@
 				    <li class="list-group-item"><strong>Education Level:</strong> <p class="mt-3"><%= @post.education_level %></p></li>
 				    <li class="list-group-item"><strong>Expected Salary:</strong> <p class="mt-3"><%= @post.expected_salary %></p></li>
 				  </ul>
-				 <p class="mt-5 ml-3"><strong>Job Description:</strong></p>
+				 <p class="mt-3 ml-3"><strong>Job Description:</strong></p>
 		     <p class=" mt-3 ml-3"><%= @post.job_description %></p>
 		  </div>
 		</div>
@@ -25,9 +25,9 @@
 	<div class="text-center mb-5">
 		<%= link_to 'Back', company_path(@company), {:class => "btn btn-outline-secondary"} %>
 
-		<%= link_to 'Edit', edit_post_path(@post), {:class => "btn btn-warning"} %>
+		<%= link_to 'Edit', edit_post_path(@post), {:class => "btn btn-submit"} %>
 
-		<a href="/posts/<%= @post.id %>/suggestions" class="btn btn-submit">Discover <i class='bx bx-search' ></i></a>
+		<a href="/posts/<%= @post.id %>/suggestions" class="btn btn-warning">Discover <i class='bx bx-search' ></i></a>
 	</div>
 
 

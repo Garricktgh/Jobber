@@ -148,25 +148,61 @@
 }
 
 .tinder-params{
- 	background-color: #385F71;
+ 	background-color: #2B4162;
  	color: #FFFFFF;
- 	font-size: 16px;
+ 	font-size: 1.1em;
+ 	margin: 10%;
+ 	width: max-content;
 }
 
-.tinder-params:hover{
-	border-color: #385F71;
-	background-color: white;
-	color: #385F71;
-	font-size: 16px;
+.tinder-params:hover {
+	color: #FFFFFF;
 }
 
 .img-thumbnail{
 	border: 1px solid #adadad;
+	border-radius: 50%;
 }
 
+.tinder-btn {
+	border-radius: 50%;
+ 	background-color: #FFFFFF;
+}
 
-.tinder-btn{
- 	border-radius: 50%;
+ .tinder-btn i {
+ 	font-size: 5em;
+ }
+
+.tinder-tick{
+ 	border-color: #4B8F8C;
+ 	color: #4B8F8C;
+ }
+
+.tinder-tick:hover {
+	background-color: #4B8F8C;
+	color: #FFFFFF;
+}
+
+.tinder-cross {
+	border-color: #C5283D;
+	color: #C5283D;
+}
+
+.tinder-cross:hover {
+	background-color: #C5283D;
+	color: #FFFFFF;
+}
+
+ .match-top-buttons {
+ 	margin-top: 5%;
+ }
+
+ .match-tick {
+ 	text-align: right;
+ }
+
+ .match-cross {
+ 	text-align: left;
  }
 
 .msg-box {
@@ -306,9 +342,9 @@
 	height: 10%;
 }
 
-.table-head-dark{
-	background-color: #0D1B2A;
-	color: #F5F0F6;
+.table-head-light{
+	background-color: rgba(201, 201, 201, 0.5);
+	color: #0D1B2A;
 }
 
 
@@ -403,7 +439,12 @@
 
 	.tinder-params{
 		font-size: 12px !important;
+		width: max-content;
 	}
+
+	.tinder-btn i {
+ 	font-size: 3em;
+ }
 
 	.matched {
 		line-height: 12px;
@@ -462,5 +503,8 @@
 	 	font-size: 0.8em;
 	 }
 
+	 .match-top-buttons {
+ 		font-size: 5%;
+ }
 
 }

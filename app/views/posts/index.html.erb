@@ -20,25 +20,34 @@
 			  </div>
 			  <div class="mt-5 tinder-content" style="width: 60%; margin: 0 auto;">
 			    <h2 class="text-center"><%= header %></h2>
-			    <div class="d-flex justify-content-around mt-4">
-						<button class="btn tinder-params"><%= @user.employment_type %></button>
-						<button class="btn tinder-params"><%= @user.industry %></button>
-			    </div>
-			    <div class="d-flex justify-content-around mt-4">
-			    	<button class="btn tinder-params"><%= @user.work_experience %></button>
-						<button class="btn tinder-params"><%= @user.education_level %></button>
-						<button class="btn tinder-params"><%= @user.expected_salary %></button>
-			    </div>
-			  </div>
-			</div>
+			    	<div class="row match-top-buttons">
+			    		<div class="col-4">
+			    			<button class="btn tinder-params"><%= @user.employment_type %></button>
+			    		</div>
+			    		<div class="col-4">
+			    			<button class="btn tinder-params"><%= @user.industry %></button>
+			    		</div>
+			    		<div class="col-4">
+			    			<button class="btn tinder-params"><%= @user.work_experience %></button>
+			    		</div>
+			    	</div>
+			    	<div class="row match-bottom-buttons">
+			    		<div class="col-4">
+			    				<button class="btn tinder-params"><%= @user.education_level %></button>
+			    		</div>
+			    		<div class="col-4"><button class="btn tinder-params"><%= @user.expected_salary %></button>
+			    		</div>
+			    		<div class="col-4"></div>
+			    	</div>
+			   </div>
 
 			<p class="text-center mt-5" style="width: 90%; margin: 0 auto;" >
 					<%= @user.description %>
 			</p>
 
-			<div class="row mt-4 pb-5 text-center">
+			<div class="row mt-4 pb-5 d-flex justify-content-between text-center" style="width: 100vw;">
 
-				<%= form_with scope: :status, url: statuses_path, class: "col", local: true do |form| %>
+				<%= form_with scope: :status, url: statuses_path, class: "col match-cross", local: true do |form| %>
 						<div class="form-group mt-5 mb-5" style="width: 50%; margin: 0 auto">
 
 						  <p>
@@ -53,15 +62,15 @@
 						    <%= form.text_field :post_approval, {:class => "form-control d-none", :readonly => "true", :value => "deny" } %>
 						  </p>
 
-							<%= button_tag type: 'submit', class: "tinder-btn btn-danger" do %>
-					        <i class='bx bx-x bx-lg align-text-bottom'></i>
+							<%= button_tag type: 'submit', class: "btn tinder-btn tinder-cross" do %>
+					        <i class='bx bx-x align-text-bottom'></i>
 					    <% end %>
 
 
 					</div>
 				<% end %>
 
-				<%= form_with scope: :status, url: statuses_path, class: "col", local: true do |form| %>
+				<%= form_with scope: :status, url: statuses_path, class: "col match-tick", local: true do |form| %>
 						<div class="form-group mt-5 mb-5" style="width: 50%; margin: 0 auto">
 
 						  <p>
@@ -76,8 +85,8 @@
 						    <%= form.text_field :post_approval, {:class => "form-control d-none", :readonly => "true", :value => "accept" } %>
 						  </p>
 
-							<%= button_tag type: 'submit', class: "tinder-btn btn-success" do %>
-					        <i class='bx bx-check bx-lg align-text-bottom'></i>
+							<%= button_tag type: 'submit', class: "btn tinder-btn tinder-tick" do %>
+					        <i class='bx bx-check align-text-bottom'></i>
 					    <% end %>
 
 
