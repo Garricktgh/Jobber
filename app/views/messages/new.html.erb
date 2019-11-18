@@ -46,7 +46,7 @@
 						  </div>
 						</div>
 				<% elsif user_signed_in? %>
-					<!-- Button trigger modal -->
+						<!-- Button trigger modal -->
 						<li><a data-toggle="modal" style="color: #2B4162;" href="#qwerty<%= @post.id %>"><%= @post.job_title %></a></li>
 							<!-- Modal -->
 						<div class="modal fade" id="qwerty<%= @post.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -153,9 +153,42 @@
 		<% end %>
 
 		<script language="javascript" type="text/javascript">
+
+			let modals = document.querySelector(".modal")
+			// check for focus
+			function elementInViewport2(el) {
+			  var top = el.offsetTop;
+			  var left = el.offsetLeft;
+			  var width = el.offsetWidth;
+			  var height = el.offsetHeight;
+
+			  while(el.offsetParent) {
+			    el = el.offsetParent;
+			    top += el.offsetTop;
+			    left += el.offsetLeft;
+			  }
+
+			  return (
+			    top < (window.pageYOffset + window.innerHeight) &&
+			    left < (window.pageXOffset + window.innerWidth) &&
+			    (top + height) > window.pageYOffset &&
+			    (left + width) > window.pageXOffset
+			  );
+			}
+
+			function isScrolledIntoView(elem){
+			    var docViewTop = $(window).scrollTop();
+			    var docViewBottom = docViewTop + $(window).height();
+
+			    var elemTop = $(elem).offset().top;
+			    var elemBottom = elemTop + $(elem).height();
+
+			    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+			}
+
 		  let messageBox = document.querySelector('.msg-text-area')
 		  setInterval(() => {
-		    if (messageBox.value === "") {
+		    if (messageBox.value === "" && elementInViewport2(modals) == false && isScrolledIntoView(lastChatBox) == true) {
 		      setTimeout("location.reload();", 100);
 		    }
 		  }, 4000)
