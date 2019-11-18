@@ -13,11 +13,11 @@ class MessagesController < ApplicationController
     else
       redirect_to root_path
     end
-
   end
 
-  def new
 
+
+  def new
 
     if (user_signed_in?)
       @messages = Message.where(user_id: params[:user_id], post_id: params[:post_id]).order(created_at: :asc)
@@ -63,11 +63,9 @@ class MessagesController < ApplicationController
       end
       # ================================================================
 
-
     else
       redirect_to root_path
     end
-
 
   end
 
@@ -84,9 +82,14 @@ class MessagesController < ApplicationController
     redirect_to new_message_path(post_id: message_params[:post_id], user_id: message_params[:user_id])
   end
 
+  def destroy
+
+  end
+
 
   private
   def message_params
     params.require(:message).permit(:post_id, :user_id, :sender, :content)
   end
+
 end

@@ -127,7 +127,7 @@
 	    <%= form.number_field :user_id, {:class => "form-control d-none", :readonly => "true", :value => @user.id } %>
 	    <%= form.number_field :post_id, {:class => "form-control d-none", :readonly => "true", :value => @post.id } %>
 			<%= form.text_area :content, {:class => "form-control msg-text-area", :minlength => 1, :rows => 3, :cols => 200, :required => "true", :placeholder => "Write a message..."} %>
-		<%= form.submit "Send", class: "btn msg-text-button" %>
+			<%= form.submit "Send", class: "btn msg-text-button" %>
 		<% end %>
 
 		<script language="javascript" type="text/javascript">

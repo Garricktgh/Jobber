@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   get '/messages/new/:post_id/:user_id' => 'messages#new', as: 'new_message'
   post '/messages' => 'messages#create'
 
+
 end
