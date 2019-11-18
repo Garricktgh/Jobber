@@ -123,11 +123,11 @@
  </div>
 
 	<div class="row msg-text-field">
-		<%= form_with scope: :message, url: messages_path, local: true do |form| %>
+		<%= form_with scope: :message, url: messages_path, html: {:id => "message-box"}, local: true do |form| %>
 	    <%= form.number_field :user_id, {:class => "form-control d-none", :readonly => "true", :value => @user.id } %>
 	    <%= form.number_field :post_id, {:class => "form-control d-none", :readonly => "true", :value => @post.id } %>
 			<%= form.text_area :content, {:class => "form-control msg-text-area", :minlength => 1, :rows => 3, :cols => 200, :required => "true", :placeholder => "Write a message..."} %>
-			<%= form.submit "Send", class: "btn msg-text-button" %>
+			<%= form.submit "Send", class: "btn msg-text-button message-submit" %>
 		<% end %>
 
 		<script language="javascript" type="text/javascript">
@@ -137,6 +137,13 @@
 		      setTimeout("location.reload();", 100);
 		    }
 		  }, 4000)
+
+       document.getElementById("message-box").addEventListener("keyup", (event) => {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.querySelector(".message-submit").click();
+        }
+      });
 		</script>
 
 
