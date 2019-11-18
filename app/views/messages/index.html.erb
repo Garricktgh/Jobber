@@ -135,7 +135,9 @@
 				<div class="card match-message">
 				  <div class="row no-gutters">
 				    <div class="col-md-3 text-center">
-							<img class="match-content" src=<%= Company.where(id: post.company_id).first.display_picture %>>
+			        <a href="messages/new/<%= post.id %>/<%= user.id %>" class="stretched-link">
+								<img class="match-content" src=<%= Company.where(id: post.company_id).first.display_picture %>>
+			        </a>
 				    </div>
 				    <div class="col-md-8">
 			        <a href="messages/new/<%= post.id %>/<%= user.id %>" class="stretched-link">
