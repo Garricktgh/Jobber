@@ -111,15 +111,7 @@
 						<div class="row msg-recipient content"><small><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_r.strftime("%I:%M %p") %>)</small><%= receiver %></div>
 					<% end %>
 				<% end %>
-
 			<% end %>
-
-		<script language="javascript" type="text/javascript">
-		  let lastChatBox = document.querySelectorAll('.content');
-		  lastChatBox = lastChatBox[lastChatBox.length-1];
-		  lastChatBox.scrollIntoView();
-		</script>
-
  </div>
 
 	<div class="row msg-text-field">
@@ -131,9 +123,14 @@
 		<% end %>
 
 		<script language="javascript" type="text/javascript">
+      
+      //scrolls to the last message
+      let lastChatBox = document.querySelectorAll('.content');
+		  lastChatBox = lastChatBox[lastChatBox.length-1];
+		  lastChatBox.scrollIntoView();
 
 			let modals = document.querySelector(".modal")
-			// check for focus
+			//checks if element is in viewport
 			function elementInViewport2(el) {
 			  var top = el.offsetTop;
 			  var left = el.offsetLeft;
@@ -153,7 +150,7 @@
 			    (left + width) > window.pageXOffset
 			  );
 			}
-
+      //checks if element is scrolled into view
 			function isScrolledIntoView(elem){
 			    var docViewTop = $(window).scrollTop();
 			    var docViewBottom = docViewTop + $(window).height();
@@ -167,18 +164,20 @@
 		  let messageBox = document.querySelector('.msg-text-area')
 		  setInterval(() => {
 		    if (messageBox.value === "" && elementInViewport2(modals) == false && isScrolledIntoView(lastChatBox) == true) {
-		      setTimeout("location.reload();", 100);
+		      location.reload();
 		    }
 		  }, 4000)
+      
+      messageBox.focus();
+      messageBox.select();
 
-       document.getElementById("message-box").addEventListener("keyup", (event) => {
+      document.getElementById("message-box").addEventListener("keyup", (event) => {
         event.preventDefault();
         if (event.keyCode === 13) {
             document.querySelector(".message-submit").click();
         }
       });
 		</script>
-
-
+    
 	</div>
 </div>
