@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
  body {
  	font-family: 'Roboto', sans-serif;
  	background-color: #F5F0F6;
@@ -21,10 +22,6 @@
 	h1 {
 		font-size: 50px;
 }
-
- .navbar {
- 	background-color: #2B4162;
- }
 
  .navbar-brand img {
  	width: 60%;
@@ -35,64 +32,68 @@
  	margin-right: 5%;
  }
 
- .btn-nav {
- 	border-color: #778DA9;
+.navbar {
+	background-color: #2B4162;
+}
+
+.btn-nav {
+	border-color: #778DA9;
+	color: #FFFFFF;
+	font-size: 14px;
+}
+
+.btn-nav:hover, .btn-submit:hover {
+ 	background-color: #778DA9;
  	color: #FFFFFF;
- 	font-size: 14px;
- }
+}
 
- .btn-nav:hover, .btn-submit:hover {
-	 	background-color: #778DA9;
-	 	color: #FFFFFF;
- }
+.smol{
+		font-size: 15px;
+}
 
- .smol{
- 		font-size: 15px;
- }
-
- .btn-landing{
- 		background-color: #2B4162;
-	 	color: #FFFFFF;
-	 	font-size: 20px;
-	 	padding: 0.5em 2em;
- }
+.btn-landing{
+		background-color: #2B4162;
+ 	color: #FFFFFF;
+ 	font-size: 20px;
+ 	padding: 0.5em 2em;
+}
 
 .btn-landing:hover{
-	 	background-color: #FFF;
-	 	border-color: #2B4162;
-	 	color: #2B4162;
- }
+ 	background-color: #FFF;
+ 	border-color: #2B4162;
+ 	color: #2B4162;
+}
 
- .btn-submit {
-	 	background-color: #2B4162;
-	 	color: #FFFFFF;
-	 	font-size: 16px;
- }
+.btn-submit {
+ 	background-color: #2B4162;
+ 	color: #FFFFFF;
+ 	font-size: 16px;
+}
 
- .btn-submit:hover{
-	 	border-color: #2B4162;
-	 	background-color: #FFFFFF;
-	 	color: #2B4162;
-	 	font-size: 16px;
- }
+.btn-submit:hover{
+ 	border-color: #2B4162;
+ 	background-color: #FFFFFF;
+ 	color: #2B4162;
+ 	font-size: 16px;
+}
 
- .btn-submit-outline {
-	 	border-color: #2B4162;
-	 	background-color: #FFFFFF;
-	 	color: #2B4162;
-	 	font-size: 16px;
- }
+.btn-submit-outline {
+ 	border-color: #2B4162;
+ 	background-color: #FFFFFF;
+ 	color: #2B4162;
+ 	font-size: 16px;
+}
 
- .btn-submit-outline:hover {
-	 	background-color: #2B4162;
-	 	color: #FFFFFF;
-	 	font-size: 16px;
- }
+.btn-submit-outline:hover {
+ 	background-color: #2B4162;
+ 	color: #FFFFFF;
+ 	font-size: 16px;
+}
 
- .btn-message{
- 		background: none;
- 		border: none;
- }
+.btn-message{
+		background: none;
+		border: none;
+}
 
 
 .btn-message-title{
@@ -107,8 +108,8 @@
 
 
 .landing-page {
- 	border: none;
- }
+	border: none;
+}
 
 .landing-page img {
 	height: 90vh;
@@ -394,6 +395,12 @@
 
  @media only screen and (max-width: 700px) {
 
+	.navbar-brand img {
+		width: 50%;
+		margin-left: 0;
+	}
+
+
 	h1{
 		font-size: 30px !important;
 	}
@@ -507,4 +514,7 @@
  		font-size: 5%;
  }
 
+	.table, .table-btn{
+		font-size: 10px !important;
+	}
 }

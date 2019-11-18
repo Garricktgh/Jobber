@@ -12,8 +12,9 @@
 !/log/.keep
 /tmp
 
-
 /config/cloudinary.yml
+
+.env
 
 #ignore node_modules
 node_modules

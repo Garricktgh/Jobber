@@ -20,31 +20,31 @@
 		<div class="col-7 msg-recipient-details">
 			<ul>
 				<% if company_signed_in? %>
-						<!-- Button trigger modal -->
-						<li><a data-toggle="modal" style="color: #2B4162;" href="#qwerty<%= @user.id %>"><%= @user.name %></a></li>
+          <!-- Button trigger modal -->
+          <li><a data-toggle="modal" style="color: #2B4162;" href="#qwerty<%= @user.id %>"><%= @user.name %></a></li>
 
-						<!-- Modal -->
-						<div class="modal fade" id="qwerty<%= @user.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-						  <div class="modal-dialog modal-dialog-centered" role="document">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <h5 class="modal-title text-dark" id="exampleModalLongTitle"><%= @user.name %></h5>
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						          <span aria-hidden="true">&times;</span>
-						        </button>
-						      </div>
-						      <div class="modal-body text-dark">
-						      	<p><strong>Employment Type: </strong><%= @user.employment_type %></p>
-						      	<p><strong>Industry: </strong><%= @user.industry %></p>
-						      	<p><strong>Work Experience: </strong><%= @user.work_experience %></p>
-						      	<p><strong>Education Level: </strong><%= @user.education_level %></p>
-						      	<p><strong>Expected Salary: </strong><%= @user.expected_salary %></p>
-						      	<p><strong>Self Description: </strong></p>
-						      	<p><%= @user.description %></p>
-						      </div>
-						    </div>
-						  </div>
-						</div>
+          <!-- Modal -->
+          <div class="modal fade" id="qwerty<%= @user.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-dark" id="exampleModalLongTitle"><%= @user.name %></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body text-dark">
+                  <p><strong>Employment Type: </strong><%= @user.employment_type %></p>
+                  <p><strong>Industry: </strong><%= @user.industry %></p>
+                  <p><strong>Work Experience: </strong><%= @user.work_experience %></p>
+                  <p><strong>Education Level: </strong><%= @user.education_level %></p>
+                  <p><strong>Expected Salary: </strong><%= @user.expected_salary %></p>
+                  <p><strong>Self Description: </strong></p>
+                  <p><%= @user.description %></p>
+                </div>
+              </div>
+            </div>
+          </div>
 				<% elsif user_signed_in? %>
 						<!-- Button trigger modal -->
 						<li><a data-toggle="modal" style="color: #2B4162;" href="#qwerty<%= @post.id %>"><%= @post.job_title %></a></li>
@@ -70,20 +70,16 @@
 						    </div>
 						  </div>
 						</div>
-
 				<% end %>
 
 				<% if company_signed_in? %>
 					<li><%= @post.job_title %></li>
-
-
 				<% elsif user_signed_in? %>
 					<li><%= Company.where(id: @post.company_id).first.name %></li>
-
 				<% end %>
-
 			</ul>
 		</div>
+
 		<div class="col-3 msg-matched-date">
 			<ul>
 				<% time_m = @status.created_at.localtime(utc_offset = nil) %>
@@ -143,63 +139,6 @@
 			<%= form.text_area :content, {:class => "form-control msg-text-area", :minlength => 1, :rows => 3, :cols => 200, :required => "true", :placeholder => "Write a message..."} %>
 			<%= form.submit "Send", class: "btn msg-text-button message-submit" %>
 		<% end %>
-
-		<script language="javascript" type="text/javascript">
-      
-      //scrolls to the last message
-      let lastChatBox = document.querySelectorAll('.content');
-		  lastChatBox = lastChatBox[lastChatBox.length-1];
-		  lastChatBox.scrollIntoView();
-
-			let modals = document.querySelector(".modal")
-			//checks if element is in viewport
-			function elementInViewport2(el) {
-			  var top = el.offsetTop;
-			  var left = el.offsetLeft;
-			  var width = el.offsetWidth;
-			  var height = el.offsetHeight;
-
-			  while(el.offsetParent) {
-			    el = el.offsetParent;
-			    top += el.offsetTop;
-			    left += el.offsetLeft;
-			  }
-
-			  return (
-			    top < (window.pageYOffset + window.innerHeight) &&
-			    left < (window.pageXOffset + window.innerWidth) &&
-			    (top + height) > window.pageYOffset &&
-			    (left + width) > window.pageXOffset
-			  );
-			}
-      //checks if element is scrolled into view
-			function isScrolledIntoView(elem){
-			    var docViewTop = $(window).scrollTop();
-			    var docViewBottom = docViewTop + $(window).height();
-
-			    var elemTop = $(elem).offset().top;
-			    var elemBottom = elemTop + $(elem).height();
-
-			    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-			}
-
-		  let messageBox = document.querySelector('.msg-text-area')
-		  setInterval(() => {
-		    if (messageBox.value === "" && elementInViewport2(modals) == false && isScrolledIntoView(lastChatBox) == true) {
-		      location.reload();
-		    }
-		  }, 4000)
-      
-      messageBox.focus();
-      messageBox.select();
-
-      document.getElementById("message-box").addEventListener("keyup", (event) => {
-        event.preventDefault();
-        if (event.keyCode === 13) {
-            document.querySelector(".message-submit").click();
-        }
-      });
-		</script>
-    
 	</div>
+
 </div>
