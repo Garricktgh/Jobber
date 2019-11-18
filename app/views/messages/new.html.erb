@@ -99,11 +99,18 @@
 					<% if x.sender === "post" %>
 						<% sender = x.content %>
 						<% time_s = x.created_at.localtime(utc_offset = nil) %>
-						<div class="row msg-sender content"><small style="align-self: flex-end;"><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_s.strftime("%I:%M %p") %>)</small><%= sender %></div>
+						<div class="row msg-sender content">
+							<%= sender %>
+							<small style="align-self: flex-end;"><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_s.strftime("%I:%M %p") %>)</small>
+						</div>
+
 					<% else %>
 						<% receiver = x.content %>
 						<% time_r = x.created_at.localtime(utc_offset = nil) %>
-						<div class="row msg-recipient content"><small><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_r.strftime("%I:%M %p") %>)</small><%= receiver %></div>
+						<div class="row msg-recipient content">
+							<%= receiver %>
+							<small><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_r.strftime("%I:%M %p") %>)</small>
+						</div>
 					<% end %>
 				<% end %>
 
@@ -112,11 +119,18 @@
 					<% if x.sender === "user" %>
 						<% sender = x.content %>
 						<% time_s = x.created_at.localtime(utc_offset = nil) %>
-						<div class="row msg-sender content"><small style="align-self: flex-end;"><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_s.strftime("%I:%M %p") %>)</small><%= sender %></div>
+						<div class="row msg-sender content">
+							<%= sender %>
+							<small style="align-self: flex-end;"><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_s.strftime("%I:%M %p") %>)</small>
+
+						</div>
 					<% else %>
 						<% receiver = x.content %>
 						<% time_r = x.created_at.localtime(utc_offset = nil) %>
-						<div class="row msg-recipient content"><small><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_r.strftime("%I:%M %p") %>)</small><%= receiver %></div>
+						<div class="row msg-recipient content">
+							<%= receiver %>
+							<small><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_r.strftime("%I:%M %p") %>)</small>
+						</div>
 					<% end %>
 				<% end %>
 

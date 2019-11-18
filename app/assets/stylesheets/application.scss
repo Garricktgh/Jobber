@@ -252,6 +252,8 @@
 }
 
 .msg-sender {
+	display: flex;
+	flex-direction: column;
 	background-color: #778DA9;
 	border-radius: 20px;
 	width: fit-content;
@@ -261,6 +263,8 @@
 }
 
 .msg-recipient{
+	display: flex;
+	flex-direction: column;
 	background-color: #E5E5E5;
 	border-radius: 20px;
 	width: fit-content;
