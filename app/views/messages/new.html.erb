@@ -101,7 +101,7 @@
 						<% time_s = x.created_at.localtime(utc_offset = nil) %>
 						<div class="row msg-sender content">
 							<%= sender %>
-							<small style="align-self: flex-end;"><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_s.strftime("%I:%M %p") %>)</small>
+							<span><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_s.strftime("%I:%M %p") %>)</span>
 						</div>
 
 					<% else %>
@@ -109,7 +109,7 @@
 						<% time_r = x.created_at.localtime(utc_offset = nil) %>
 						<div class="row msg-recipient content">
 							<%= receiver %>
-							<small><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_r.strftime("%I:%M %p") %>)</small>
+							<span><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_r.strftime("%I:%M %p") %>)</span>
 						</div>
 					<% end %>
 				<% end %>
@@ -121,7 +121,7 @@
 						<% time_s = x.created_at.localtime(utc_offset = nil) %>
 						<div class="row msg-sender content">
 							<%= sender %>
-							<small style="align-self: flex-end;"><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_s.strftime("%I:%M %p") %>)</small>
+							<span><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_s.strftime("%I:%M %p") %>)</span>
 
 						</div>
 					<% else %>
@@ -129,7 +129,7 @@
 						<% time_r = x.created_at.localtime(utc_offset = nil) %>
 						<div class="row msg-recipient content">
 							<%= receiver %>
-							<small><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_r.strftime("%I:%M %p") %>)</small>
+							<span><%= x.created_at.day %>/<%= x.created_at.month %>/<%= x.created_at.year %> (<%= time_r.strftime("%I:%M %p") %>)</span>
 						</div>
 					<% end %>
 				<% end %>
