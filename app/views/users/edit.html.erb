@@ -46,17 +46,17 @@
 		  </p>
 
 		  <p>
-		  	<%= form.label :employment_type %><br>
+		  	<%= form.label :employment_type %> (you are looking for)<br>
 				<%= form.select :employment_type, Post::EMPLOYMENT_TYPES, {:include_blank => 'Choose an employment type', :disabled => 1}, {:class => "form-control", :required => "true"} %>
 		  </p>
 
 		  <p>
-		  	<%= form.label :industry %><br>
-				<%= form.select :industry, Post::INDUSTRIES, {:include_blank => 'Choose a industry', :disabled => 1}, {:class => "form-control", :required => "true"} %>
+		  	<%= form.label :industry %> (of your next job)<br>
+				<%= form.select :industry, Post::INDUSTRIES, {:include_blank => 'Choose an industry', :disabled => 1}, {:class => "form-control", :required => "true"} %>
 		  </p>
 
 		  <p>
-		  	<%= form.label :work_experience %><br>
+		  	<%= form.label :work_experience %> <br>
 				<%= form.select :work_experience, Post::WORK_EXPERIENCES, {:include_blank => 'Choose your work experience', :disabled => 1}, {:class => "form-control", :required => "true"} %>
 		  </p>
 

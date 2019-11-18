@@ -1,14 +1,13 @@
 <div class="container mt-4 mb-5">
 
 	<% if @matches.first == nil %>
+			<h2 class="text-center mt-5">No Matches Yet, Let's Discover Them!</h2>
 
-		<h2 class="text-center mt-5">No Matches Yet, Let's Discover Them!</h2>
-
-	<% else %>
-		<div class="row justify-content-center">
-			<i class='bx bx-like bx-lg text-center' style="color: #2B4162"></i>
-		</div>
-		<h4 class="text-center" style="color: #2B4162">Matches</h4>
+			<% else %>
+				<div class="row justify-content-center">
+					<i class='bx bx-like bx-lg text-center' style="color: #2B4162"></i>
+				</div>
+				<h4 class="text-center" style="color: #2B4162">Matches</h4>
 
 		<div class="card matched text-white" >
 			<% if company_signed_in? %>
@@ -57,7 +56,6 @@
 				  <% end %>
 
 			<% elsif user_signed_in? %>
-
 				  <% @matches.each do |x| %>
 						<div class="match-holder text-center">
 					  	<% post = Post.where(id: x.post_id).first %>
@@ -95,14 +93,10 @@
 							</div>
 						</div>
 				  <% end %>
-
 			<% end %>
 		</div>
 
-
-
 		<% if company_signed_in? %>
-
 		  <% @messages.each do |x| %>
 		  	<% post = Post.where(id: x.post_id).first %>
 				<% user = User.where(id: x.user_id).first %>
@@ -128,7 +122,6 @@
 		  <% end %>
 
 		<% elsif user_signed_in? %>
-
 		  <% @messages.each do |x| %>
 		  	<% post = Post.where(id: x.post_id).first %>
 				<% user = User.where(id: x.user_id).first %>
