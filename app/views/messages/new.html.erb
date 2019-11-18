@@ -21,7 +21,7 @@
 			<ul>
 				<% if company_signed_in? %>
           <!-- Button trigger modal -->
-          <li><a data-toggle="modal" style="color: #2B4162;" href="#qwerty<%= @user.id %>"><%= @user.name %></a></li>
+          <li><a data-toggle="modal" style="color: #2B4162;" href="#qwerty<%= @user.id %>"><%= @user.name %> <%= link_to "", status_path(@status), method: :delete, data: { confirm: 'Are you sure?' }, :class => "bx bxs-trash btn-outline-dark" %></a></li>
 
           <!-- Modal -->
           <div class="modal fade" id="qwerty<%= @user.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -47,7 +47,7 @@
           </div>
 				<% elsif user_signed_in? %>
 						<!-- Button trigger modal -->
-						<li><a data-toggle="modal" style="color: #2B4162;" href="#qwerty<%= @post.id %>"><%= @post.job_title %></a></li>
+						<li><a data-toggle="modal" style="color: #2B4162;" href="#qwerty<%= @post.id %>"><%= @post.job_title %> <%= link_to "", status_path(@status), method: :delete, data: { confirm: 'Are you sure?' }, :class => "bx bxs-trash btn-outline-dark" %></a></li>
 							<!-- Modal -->
 						<div class="modal fade" id="qwerty<%= @post.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 						  <div class="modal-dialog modal-dialog-centered" role="document">

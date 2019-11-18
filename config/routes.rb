@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   patch '/posts/:id' => 'posts#update'
   delete '/posts/:id' => 'posts#destroy'
 
-  resources :statuses
+  resources :statuses, only: [:create, :destroy]
 
   get '/messages' => 'messages#index', as: 'messages'
   get '/messages/new/:post_id/:user_id' => 'messages#new', as: 'new_message'
