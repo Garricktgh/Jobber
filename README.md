@@ -55,6 +55,6 @@ https://jobberwocky.herokuapp.com/
 ![ERD]
 
 # User Stories
-
+[Slides](https://prezi.com/view/zECB4pd44GHmn3FwnN0H/)
 
 
