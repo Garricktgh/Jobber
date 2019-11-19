@@ -4,7 +4,7 @@ class StatusesController < ApplicationController
     if status_params[:post_approval].present?
       @status.update_attributes(post_approval: status_params[:post_approval])
       @status.save
-      redirect_to posts_path(status_params[:post_id])
+      redirect_to suggestion_post_path(status_params[:post_id])
     elsif status_params[:user_approval].present?
       @status.update_attributes(user_approval: status_params[:user_approval])
       @status.save
@@ -18,7 +18,7 @@ class StatusesController < ApplicationController
     @status.destroy
     redirect_back(fallback_location: root_path)
   end
-  
+
   private
   def status_params
     params.require(:status).permit(:post_id, :user_id, :post_approval, :user_approval)

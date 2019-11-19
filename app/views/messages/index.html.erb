@@ -68,6 +68,7 @@
 							<!-- Button trigger modal -->
 							<div class="text-center mt-2">
 								<a class="match-job-content" data-toggle="modal" href="#qwerty<%= post.id %>">
+									<p><strong><%= Company.where(id: post.company_id).first.name %></strong></p>
 								  <%= post.job_title %>
 								</a>
 							</div>
