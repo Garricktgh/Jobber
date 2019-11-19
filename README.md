@@ -49,7 +49,7 @@ Install libraries and run app
 https://jobberwocky.herokuapp.com/
   
 # Wireframe
-![Wireframe]
+![Wireframe](https://raw.githubusercontent.com/Garricktgh/Jobberwocky/master/documents/Wireframe_Jobberwocky.png)
 
 # ERD
 ![ERD]
