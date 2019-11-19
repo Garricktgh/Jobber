@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :companies
 
-  get '/posts/:id/suggestions' => 'posts#index', as: 'posts'
+  get '/posts/:id/suggestions' => 'posts#index', as: 'suggestion_post'
   get '/posts/new' => 'posts#new', as: 'new_post'
   post '/posts' => 'posts#create'
   get '/posts/:id' => 'posts#show' , as: 'post'
