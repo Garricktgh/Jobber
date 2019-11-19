@@ -52,7 +52,7 @@ https://jobberwocky.herokuapp.com/
 ![Wireframe](https://raw.githubusercontent.com/Garricktgh/Jobberwocky/master/documents/Wireframe_Jobberwocky.png)
 
 # ERD
-![ERD]
+![ERD](https://github.com/Garricktgh/Jobberwocky/blob/master/documents/jobberwocky_erb.png?raw=true)
 
 # User Stories
 [Slides](https://prezi.com/view/zECB4pd44GHmn3FwnN0H/)
